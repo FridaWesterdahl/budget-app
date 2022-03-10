@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,37 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  outline: 1px solid red;
 }
+
+body {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 55px;
+}
+
+#app {
+  display: flex;
+}
+
+aside {
+  flex: 1;
+}
+
+main {
+  flex: 2;
+}
+
