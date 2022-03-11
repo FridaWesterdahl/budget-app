@@ -1,4 +1,12 @@
+function Money(props) {
+return(
+    <li id={props.id} name={props.name} money={props.money}>{props.name}: {props.money}</li>
+    
+)
+}
+
 function Header() {
+    const moneySpent = 19000;
     return (
         <>
             <header>
@@ -7,19 +15,17 @@ function Header() {
                 <h3 id="h3">get you economy in order</h3>
             </header>
 
-            <section id="graph">
-                <img src="https://mb.cision.com/Public/977/3482646/aa5533be0d43e6fc_800x800ar.png" alt=""></img>
-            </section>
-
             <div id="summary">
                 <ul id="numbers">
-                    <li>Budget:<input id="budget" type="number"></input>:-</li>
-                    <li id="money-spent">Money spent: 15 000:-</li>
-                    <li id="money-left">Money left: 10 000:-</li>
+                    <li>Budget [SEK] <input id="budget" type="number"></input></li>
+                    <Money id="money-spent"name="Money spent [SEK]"money={ moneySpent } />
+                    <Money id="money-left"name="Money left [SEK]"money="1000" />
                 </ul>
             </div>
         </>
     );
 }
+
+
 
 export default Header;

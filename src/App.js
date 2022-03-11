@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Header />
-      <section id="app"> //wrappar flex/grid
+      <section id="app">
         <Aside />
         <Main />
       </section>
