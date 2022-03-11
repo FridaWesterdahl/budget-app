@@ -1,7 +1,9 @@
+import Category from "./category/category";
+
 function Aside() {
     return (
         <aside>
-           <h1>hej</h1>
+           <Category />
         </aside>
     )
 }
