@@ -1,4 +1,4 @@
-import Category from "./category/category";
+import Category from "./category/Category";
 import './filter.css';
 
 function Filter() {

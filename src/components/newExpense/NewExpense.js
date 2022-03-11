@@ -1,5 +1,5 @@
 import './newExpense.css';
-import Category from '../main/category/category';
+import Category from '../main/category/Category';
 
 function NewExpense() {
     return (
