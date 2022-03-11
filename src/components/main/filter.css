@@ -1,0 +1,30 @@
+#aside {
+    grid-area: a;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-left: 5px;
+}
+
+#filter {
+    background-color: #b6c09f;
+    padding: 10px;
+    padding-bottom: 25px;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.2), 0 25px 50px 0 rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+#time-filter, #category-options {
+    max-width: max-content;
+    min-height: 20px;
+    font-size: 12px;
+    background-color: #f0f1ea;
+    color:black;
+    border:none;
+    padding: 1px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
