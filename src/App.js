@@ -1,17 +1,16 @@
 import './App.css';
-import Header from './components/header/Header'
-import Aside from './components/aside/Aside';
-import Main from './components/main/main';
+import Start from './components/start/Start';
+import NewExpense from './components/newExpense/NewExpense';
+import Main from './components/main/Main';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
     <>
-      <Header />
-      <section id="app">
-        <Aside />
-        <Main />
-      </section>
-
+      <Start />
+      <NewExpense />
+      <Main />
+      <Footer />
     </>
   );
 }

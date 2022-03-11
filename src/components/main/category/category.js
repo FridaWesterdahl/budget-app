@@ -1,3 +1,5 @@
+import './category.css';
+
 function Options(props) {
     return (
         <option id={props.id} class={props.class} value={props.name}>{props.name}</option>
@@ -7,7 +9,7 @@ function Options(props) {
 function Category() {
     return (
         <>
-            <select id="category-otions">
+            <select id="category-options">
                 <Options id="category" class="options" name="Choose category" />
                 <Options id="food" name="Food" />
                 <Options id="shopping" name="Shopping" />
