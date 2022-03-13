@@ -1,12 +1,16 @@
 import Filter from './Filter';
+import NewExpense from './NewExpense';
 import LatestExpense from './LatestExpense';
 import './main.css'
 
 function Main() {
-  return  (
+    return (
         <div id="wrapper">
-            <Filter />,
-            <LatestExpense />
+            <Filter />
+            <div id="expense-area">
+                <NewExpense />
+                <LatestExpense />
+            </div>
         </div>
 
     );
