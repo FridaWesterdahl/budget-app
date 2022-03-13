@@ -1,9 +1,10 @@
 import './start.css';
+import BigLogo from './BigLogo';
 
 function Money(props) {
-return(
-    <li id={props.id} name={props.name} money={props.money}>{props.name}: {props.money}</li>
-);
+    return (
+        <li id={props.id} name={props.name} money={props.money}>{props.name}: {props.money}</li>
+    );
 }
 
 function Start() {
@@ -20,12 +21,11 @@ function Start() {
                 <img src="https://mb.cision.com/Public/977/3482646/aa5533be0d43e6fc_800x800ar.png"></img>
             </section>
             <div id="summary">
-                <ul id="numbers">
-                    <li>Budget [SEK] <input id="budget" type="number"></input></li>
-                    <Money id="money-spent"name="Money spent [SEK]"money={ moneySpent } />
-                    <Money id="money-left"name="Money left [SEK]"money={ moneyLeft } />
-                </ul>
+                <p>Budget [SEK] </p><input id="budget" type="number"></input>
+                <Money id="money-spent" name="Money spent [SEK]" money={moneySpent} />
+                <Money id="money-left" name="Money left [SEK]" money={moneyLeft} />
             </div>
+            <BigLogo />
         </>
     );
 }

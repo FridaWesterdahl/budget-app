@@ -6,6 +6,16 @@
     margin-left: 5px;
 }
 
+#show-details-button {
+    font-size: 17px;
+    padding: 5px;
+    background-color: #8c8f86c4;
+}
+
+#show-details-button:checked {
+    background-color: #1b1b1b;
+}
+
 #filter {
     background-color: #b6c09f;
     padding: 10px;
@@ -27,4 +37,16 @@
     border-radius: 5px;
     font-size: 12px;
 }
+
+@media screen and (max-width: 463px) {
+    #aside {
+         width: 70%;
+     }
+
+    #show-details-button {
+        width: max-content;
+        font-size: 13px;
+     }
+   }
+ 
 

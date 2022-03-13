@@ -7,6 +7,7 @@
       background-color: #b6c09f91;
       border-radius: 5px;
       padding-left: 10px;
+      margin-left: 30px;
   }
   
   #expenses h3 {
@@ -99,5 +100,19 @@
       cursor: pointer;
   }
 
+  @media screen and (max-width: 700px) {
+    #expenses, #latest-expenses {
+    width: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+    }
+  }
 
-  
+  @media screen and (max-width: 463px) {
+   #expenses h3, p {
+        width: max-content;
+    }
+  }
