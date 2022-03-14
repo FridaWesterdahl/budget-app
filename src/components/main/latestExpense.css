@@ -42,31 +42,31 @@
       margin-bottom: 2px;
       justify-items: left;
   }
-  #purchase-date {
+  .purchase-date {
       grid-area: a;
       font-size: 13px;
       margin-top: 3px;
       margin-bottom: 3px;
   }
-  #purchase-item {
+  .purchase-item {
       grid-area: b;
       font-size: 13px;
       margin-top: 3px;
       margin-bottom: 3px;
   }
-  #purchase-category {
+  .purchase-category {
       grid-area: c;
       font-size: 12px;
       margin-top: 3px;
       margin-bottom: 3px;
   }
-  #purchase-cost {
+  .purchase-cost {
       grid-area: d;
       font-size: 13px;
       margin-top: 3px;
       margin-bottom: 3px;
   }
-  #remove-purchase {
+  .remove-purchase {
       grid-area: e;
       cursor: pointer;
       border: none;
@@ -74,6 +74,11 @@
       width: fit-content;
       background-color: #f0f1ea;
       justify-content: end;
+      opacity: 50%;
+  }
+  .remove-purchase:hover {
+    background-color: #f0f1ea;
+    opacity: 100%;
   }
   
   #show-alternative, #show-alternative p {
