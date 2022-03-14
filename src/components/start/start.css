@@ -37,6 +37,9 @@ img {
   width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
     background-color: #f0f1ea;
     padding: 5px;
     margin-top: 0;
@@ -46,36 +49,31 @@ img {
     margin-bottom: 10px;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2), 0 20px 50px 0 rgba(0,0,0,0.1);
   }
-/*   
-  #numbers {
-    width: 100%;
-    list-style-type: none;
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-areas: "a b c";
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-  }
-  
   #budget {
-    grid-area: a;
     width: 70px;
     background-color: #dadccd;
     color:black;
     padding-top: 3px;
     padding-bottom: 4px;
-    padding-left: 10px;
     border:none;
     border-radius: 5px;
   }
-  #money-spent {
-    grid-area: b;
-  }
-  #money-left {
-    grid-area: c;
-  }  */
-  
+
+  .details-button {
+    font-size: 17px;
+    padding: 5px;
+    background-color: #8c8f86c4;
+    margin-bottom: 15px;
+}
+
+.details-button-clicked {
+    font-size: 17px;
+    padding: 5px;
+    background-color: #1b1b1b;
+    margin-bottom: 15px;
+}
+
+
   @media screen and (max-width: 700px) {
     #summary, #numbers {
       width: 70%;
@@ -83,11 +81,27 @@ img {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: 10px;
     }
-  }
 
+    #show-details-button {
+      width: max-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+    }
+
+    #summary p {
+     margin: 2px;
+    }
+  
+  }
+/* 
   @media screen and (max-width: 400px) {
      #numbers {
       font-size: 15px;
+      margin: 5px;
     }
-  }
+  } */

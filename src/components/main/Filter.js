@@ -4,9 +4,6 @@ import './filter.css';
 function Filter() {
     return (
         <div id="aside">
-            <button id="show-details-button" type="button" value="text">
-                S H O W &ensp;&ensp; D E T A I L S</button>
-
             <div id="filter">
                 <h3>t i m e</h3>
                 <select id="time-filter">
