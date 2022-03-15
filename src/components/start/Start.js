@@ -1,6 +1,4 @@
 import './start.css';
-import BigLogo from './BigLogo';
-import { useState } from 'react';
 
 function Money(props) {
     return (
@@ -11,9 +9,6 @@ function Money(props) {
 function Start() {
     const moneySpent = 290000;
     const moneyLeft = 20000;
-
-    const [click, setClick] = useState(false);
-    const handleClick = () => setClick(!click);
 
     return (
         <>
@@ -30,10 +25,6 @@ function Start() {
                 <Money id="money-spent" name="Money spent [SEK]" money={moneySpent} />
                 <Money id="money-left" name="Money left [SEK]" money={moneyLeft} />
             </div>
-            <button className={click ? 'details-button-clicked' : 'details-button'}
-                onClick={handleClick} type="button" value="text">
-                S H O W &ensp;&ensp; D E T A I L S</button>
-            <BigLogo />
         </>
     );
 }
