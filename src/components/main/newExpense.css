@@ -27,7 +27,7 @@
     box-shadow: 2px 3px 4px 0 rgba(0,0,0,0.2), 0 25px 50px 0 rgba(0,0,0,0.1);
 }
 
-#new-expense #date, #new-expense #input {
+#new-expense #date, #new-expense #input, #cost {
     background-color: #f0f1ea;
     border-radius: 5px;
     border:none;
@@ -44,13 +44,20 @@
 }
 
 #new-expense #input {
+    width: 25%;
     padding-top: 3px;
     padding-bottom: 4px;
     padding-left: 10px;
     margin-right: 5px;
 }
 
-#submit {
+#cost {
+    width: 55px;
+    text-align: center;
+  }
+
+
+.submit {
     font-size: 12px;
     border-radius: 10px;
     border: none;
