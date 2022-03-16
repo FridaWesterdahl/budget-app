@@ -8,8 +8,9 @@ function NewExpense() {
             <form>
                 <input type="date" id="date"></input>
                 <input id="input" type="text" placeholder="Enter expense..."></input>
-            <Category />
-            <button type="submit" id="submit">add</button>
+                <Category />
+                <input id="cost" type="number" placeholder="cost"></input>
+                <button type="submit" class="submit">add</button>
             </form>
         </div>
     );
