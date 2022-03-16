@@ -20,7 +20,7 @@ function Main() {
                 <Filter />
                 <div id="expense-area">
                     <NewExpense />
-                    <LatestExpense />
+                    {/* <LatestExpense /> */}
                 </div>
             </div>
             <div className={click ? 'hidden' : ''}>

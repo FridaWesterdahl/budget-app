@@ -11,20 +11,23 @@ function Money(props) {
 
 
 function Start() {
-
-    const moneySpent = 290000;
-    const moneyLeft = 20000;
-
     const [budget, setBudget] = useState("");
 
     const handleBudgetChange = (event) => {
         event.preventDefault();
         setBudget(event.target.value);
+        console.log(budget)
     }
 
-    // const handleBudgetSubmit = (event) => {
-    //     event.preventDefault();
-    // }
+    const handleBudgetSubmit = (event) => {
+        event.preventDefault();
+        console.log("submit", budget)
+    }
+
+
+    const moneySpent = 290000;
+    const moneyLeft = 20000;
+
 
     return (
         <>
@@ -37,14 +40,15 @@ function Start() {
                 <img src="https://mb.cision.com/Public/977/3482646/aa5533be0d43e6fc_800x800ar.png"></img>
             </section>
             <div id="summary">
-                <form>
-                    <p>Budget[SEK]
+                <form onSubmit={handleBudgetSubmit}>
+                    <p>Budget[SEK]:
                         <input
                             id="budget"
                             name="budget"
                             type="number"
                             value={budget}
-                            onChange={handleBudgetChange}>
+                            onChange={handleBudgetChange}
+                        >
                         </input></p>
                     {/* <input type="submit" id="submit" onSubmit={handleBudgetSubmit}>submit</input> */}
                 </form>
