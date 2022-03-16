@@ -55,8 +55,10 @@ img {
     color:black;
     padding-top: 3px;
     padding-bottom: 4px;
+    margin-left: 2px;
     border:none;
     border-radius: 5px;
+    text-align: center;
   }
 
   form {
