@@ -94,8 +94,6 @@ function NewExpense() {
                     <Expense date="14-03-2022" item="Car" category="Other" cost="30000:-" />
                     <Expense date="14-03-2022" item="Shoes" category="Shopping" cost="800:-" />
                     <Expense date="14-03-2022" item="Clothes" category="Shopping" cost="500:-" />
-
-
                 </ul>
                 <div id="show-alternative">
                     <p>s h o w:</p>
