@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid';
 
 function Expense(props) {
     return (
-        <li>
+        <li id={props.id}>
             <p className='purchase-date' date={props.date}>{props.date}</p>
             <p className='purchase-item' item={props.item}>{props.item}</p>
             <p className='purchase-category' category={props.category}>{props.category}</p>
@@ -18,10 +18,10 @@ function Expense(props) {
 
 function NewExpense() {
 
-    const [expenses, setExpenses] = useState("");
+    const [expenses, setExpenses] = useState([]);
     const [addFormData, setAddFormData] = useState({
         date: '',
-        expense: '',
+        item: '',
         category: '',
         cost: ''
     })
@@ -59,7 +59,7 @@ function NewExpense() {
                 <p>N E W &nbsp;&nbsp; E X P E N S E:</p>
                 <form onSubmit={handleAddFormSubmit}>
                     <input type="date" id="date" name="date" onChange={handleAddFormData}></input>
-                    <input id="input" type="text" name="expense" placeholder="Enter expense..." onChange={handleAddFormData}></input>
+                    <input id="input" type="text" name="item" placeholder="Enter expense..." onChange={handleAddFormData}></input>
                     <Category name="category" onChange={handleAddFormData} />
                     <input id="cost" type="number" name="cost" placeholder="cost" onChange={handleAddFormData}></input>
                     <button type="submit" class="submit" onSubmit={handleAddFormSubmit}>add</button>
@@ -85,6 +85,7 @@ function NewExpense() {
                     </li>
                     {expenses.map((expense) => (
                         <Expense
+                            id={expense.id}
                             date={expense.date}
                             item={expense.item}
                             category={expense.category}
@@ -93,8 +94,6 @@ function NewExpense() {
                     <Expense date="14-03-2022" item="Car" category="Other" cost="30000:-" />
                     <Expense date="14-03-2022" item="Shoes" category="Shopping" cost="800:-" />
                     <Expense date="14-03-2022" item="Clothes" category="Shopping" cost="500:-" />
-
-
                 </ul>
                 <div id="show-alternative">
                     <p>s h o w:</p>
