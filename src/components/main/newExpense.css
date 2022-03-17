@@ -1,6 +1,7 @@
 #new-expense {
-    grid-area: new-expense;
+    grid-area: b;
     display: grid;
+    width: 100%;
     grid-template-rows: auto;
     align-items: center;
     justify-content: center;
@@ -15,22 +16,23 @@
 
 #new-expense p {
     font-size: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 2px;
     border-radius: 10px;
     background-color: #1b1b1b;
-    color:#b6c09f;
+    color: #dde2d1;
     width: fit-content;
     box-shadow: 2px 3px 4px 0 rgba(0,0,0,0.2), 0 25px 50px 0 rgba(0,0,0,0.1);
 }
 
-#new-expense #date, #new-expense #input {
+#new-expense #date, #new-expense #input, #cost {
     background-color: #f0f1ea;
     border-radius: 5px;
     border:none;
     color:black;
+    margin-left: 5px;
 }
 
 #new-expense #date {
@@ -42,15 +44,20 @@
 }
 
 #new-expense #input {
+    width: 25%;
     padding-top: 3px;
     padding-bottom: 4px;
     padding-left: 10px;
+    margin-right: 5px;
 }
 
+#cost {
+    width: 55px;
+    text-align: center;
+  }
 
 
-
-#submit {
+.submit {
     font-size: 12px;
     border-radius: 10px;
     border: none;
@@ -61,3 +68,22 @@
     color:#b6c09f;
     box-shadow: 2px 3px 4px 0 rgba(0,0,0,0.2), 0 25px 50px 0 rgba(0,0,0,0.1);
 }
+
+@media screen and (max-width: 700px) {
+    #new-expense {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+      width: 70%;
+      margin: auto;
+    }
+  }
+
+  @media screen and (max-width: 463px) {
+    #new-expense p {
+         width: max-content;
+     }
+   }
+ 
+

@@ -2,7 +2,54 @@
 #wrapper {
     display: grid;
     grid-template-columns: 1fr, 2fr;
-    grid-template-areas: "a b";
+    grid-template-areas:
+    "a b";
     width: 100%;
     margin-left: 5px;
   }
+
+  #expense-area {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 700px) {
+    #wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      width: 70%;
+    }
+    
+    .details-button, .details-button-clicked {
+      width: max-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+    }
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+ 
+  .details-button {
+    font-size: 17px;
+    padding: 5px;
+    background-color: #8c8f86c4;
+    margin-bottom: 15px;
+}
+
+.details-button-clicked {
+    font-size: 17px;
+    padding: 5px;
+    background-color: #1b1b1b;
+    margin-bottom: 15px;
+}
+
