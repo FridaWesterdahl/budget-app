@@ -28,3 +28,15 @@
     font-size: 12px;
 }
 
+@media screen and (max-width: 463px) {
+    #aside {
+         width: 70%;
+     }
+
+    #show-details-button {
+        width: max-content;
+        font-size: 13px;
+     }
+   }
+ 
+
