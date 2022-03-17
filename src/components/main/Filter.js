@@ -1,4 +1,4 @@
-import Category from "./category/Category";
+import Category from "./category/category";
 import './filter.css';
 
 function Filter() {
@@ -7,7 +7,7 @@ function Filter() {
             <div id="filter">
                 <h3>t i m e</h3>
                 <select id="time-filter">
-                    <option value="" id="category" class="options">Choose timespan</option>
+                    <option value="" id="category" className="options">Choose timespan</option>
                     <option value="" id="per-year">Year</option>
                     <option value="" id="per-month">Month</option>
                     <option value="" id="per-day">Day</option>
