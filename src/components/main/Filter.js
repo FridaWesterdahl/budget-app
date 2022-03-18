@@ -1,4 +1,4 @@
-import Category from "./category/Category";
+import Category from "./category/category";
 import './filter.css';
 import { useState } from 'react'
 
@@ -13,7 +13,7 @@ function Filter() {
         console.log('event.target.value ' + event.target.value)
         console.log('option: ' + option)
     }
-    
+
     return (
         <div id="aside">
             <div id="filter">
@@ -30,7 +30,7 @@ function Filter() {
                 and then adds new expenses
                 the category choosed here will be applied to the
                 latest expenses */}
-                <Category /> 
+                <Category />
                 <p>. . . . . . . . . . . . . . .</p>
             </div>
         </div>

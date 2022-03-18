@@ -11,6 +11,8 @@ export let chosenOption; //exported to Expense.js
 
 export default function Category() {
 
+    const [option, setOption] = useState("");
+
     const handleOptionChange = (event) => {
         event.preventDefault();
         setOption(event.target.value);
