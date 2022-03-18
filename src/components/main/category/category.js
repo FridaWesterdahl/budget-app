@@ -9,30 +9,33 @@ function Options(props) {
 
 function Category() {
 
-    const [option, setOption] = useState("");
+    const [state, setState] = useState({
+        ...
+        categoryOption: ""
+    });
 
     const handleOptionChange = (event) => {
         event.preventDefault();
-        // this.useState(event.target.value)
-        setOption(event.target.value);
+
+        setState(event.target.value);
 
 
-        console.log('event.target.value ' + event.target.value)
-        console.log('option: ' + option)
+        console.log('event.target.value: ' + event.target.value)
     }
-    const value = setOption;
 
 
 
 
     return (
         <>
-            <select id="category-options" name="category" value={setOption} onChange={handleOptionChange}>
-                <Options id="category" class="options" name="Choose category" />
-                <Options id="food" name="Food" />
-                <Options id="shopping" name="Shopping" />
-                <Options id="electronics" name="Electronics" value="Electronics" />
-            </select>
+            <form>
+                <select id="category-options" name="categoryOption" value={state.categoryOption} onChange={handleOptionChange}>
+                    <Options id="category" class="options" name="Choose category" />
+                    <Options id="food" name="Food" />
+                    <Options id="shopping" name="Shopping" />
+                    <Options id="electronics" name="Electronics" value="Electronics" />
+                </select>
+            </form>
         </>
     );
 }
