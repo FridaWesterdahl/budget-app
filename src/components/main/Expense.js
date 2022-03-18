@@ -3,7 +3,8 @@ import './latestExpense.css';
 import Category from './category/Category';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import { chosenOption } from './category/Category';
+
+let expenseOption;
 
 let array = [];
 
@@ -20,7 +21,6 @@ function Expense(props) {
 }
 
 function NewExpense() {
-
 
     const [expenses, setExpenses] = useState([]);
     const [addFormData, setAddFormData] = useState({
@@ -49,7 +49,7 @@ function NewExpense() {
             id: nanoid(),
             date: addFormData.date,
             item: addFormData.item,
-            category: chosenOption,
+            category: expenseOption,
             cost: addFormData.cost
         };
 
@@ -59,15 +59,28 @@ function NewExpense() {
         console.log('My array ' + array.length)
     }
 
+    const [option, setOption] = useState("");
+
+    const handleOptionChange = (event) => {
+        event.preventDefault();
+        setOption(event.target.value);
+        console.log('Category(); option: ' + '"' + option + '"') //previous value
+        console.log('Category(); event.target.value ' + '"' + event.target.value + '"') //new value set
+
+        expenseOption = event.target.value
+        console.log('Our variable: ' + '"' + expenseOption + '"')
+    }
 
     return (
         <>
             <div id="new-expense">
-                <p>N E W &nbsp;&nbsp; E X P E N S E:</p>
+                <h3>N E W &nbsp;&nbsp; E X P E N S E:</h3>
                 <form onSubmit={handleAddFormSubmit}>
                     <input required type="date" id="date" name="date" onChange={handleAddFormData}></input>
                     <input required id="input" type="text" name="item" placeholder="Enter expense..." onChange={handleAddFormData}></input>
-                    <Category name="category" onChange={handleAddFormData} />
+                    <select id="category-options" name="category" onChange={handleOptionChange}>
+                        <Category />
+                    </select>
                     <input required id="cost" type="number" name="cost" placeholder="cost" onChange={handleAddFormData}></input>
                     <button type="submit" className="submit" onSubmit={handleAddFormSubmit}>add</button>
                 </form>
@@ -75,7 +88,7 @@ function NewExpense() {
 
             <div id="expenses">
                 <h3>L A T E S T &nbsp;&nbsp; E X P E N S E S</h3>
-                <ol start={1} id="latest-expenses">
+                <ul id="latest-expenses">
 
 
                     {expenses.map((expense) => (
@@ -91,7 +104,7 @@ function NewExpense() {
                     <Expense date="2022-01-03" item="Car" category="Other" cost="30000:-" />
                     <Expense date="2022-01-03" item="Shoes" category="Shopping" cost="800:-" />
                     <Expense date="2022-01-03" item="Clothes" category="Shopping" cost="500:-" />
-                </ol>
+                </ul>
 
                 <div id="show-alternative">
                     <p>s h o w:</p>
@@ -108,14 +121,14 @@ export default NewExpense;
 
 
 const Show5Items = (e) => {
-e.preventDefault();
-console.log('onClick Show5Items()')
+    e.preventDefault();
+    console.log('onClick Show5Items()')
 }
 const Show10Items = (e) => {
     e.preventDefault();
     console.log('onClick Show10Items()')
-    }
-    const Show20Items = (e) => {
-        e.preventDefault();
-        console.log('onClick Show20Items()')
-        }
+}
+const Show20Items = (e) => {
+    e.preventDefault();
+    console.log('onClick Show20Items()')
+}

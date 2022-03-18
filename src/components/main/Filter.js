@@ -2,6 +2,8 @@ import Category from "./category/Category";
 import './filter.css';
 import { useState } from 'react'
 
+let filterOption;
+
 function Filter() {
 
     const [option, setOption] = useState("");
@@ -10,6 +12,7 @@ function Filter() {
         event.preventDefault();
         setOption(event.target.value);
 
+        filterOption = event.target.value;
         console.log('event.target.value ' + event.target.value)
         console.log('option: ' + option)
     }
@@ -26,11 +29,10 @@ function Filter() {
                 </select>
 
                 <h3>c a t e g o r y</h3>¨
-                {/* When choosed category on filter
-                and then adds new expenses
-                the category choosed here will be applied to the
-                latest expenses */}
-                <Category /> 
+
+                 <select id="category-options" name="category" onChange={handleOptionChange}>
+                        <Category  />
+                    </select>
                 <p>. . . . . . . . . . . . . . .</p>
             </div>
         </div>
