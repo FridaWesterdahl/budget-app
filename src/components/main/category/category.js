@@ -1,6 +1,6 @@
 import './category.css';
 
-function Options(props) {
+export function Options(props) {
     return (
         <option id={props.id} className={props.class} value={props.name}>{props.name}</option>
     )

@@ -20,7 +20,8 @@ function Expense(props) {
     );
 }
 
-function NewExpense() {
+
+export default function NewExpense() {
 
     const [expenses, setExpenses] = useState([]);
     const [addFormData, setAddFormData] = useState({
@@ -46,7 +47,7 @@ function NewExpense() {
         event.preventDefault();
 
         const newExpense = {
-            id: nanoid(),
+            key: nanoid(),
             date: addFormData.date,
             item: addFormData.item,
             category: expenseOption,
@@ -73,8 +74,9 @@ function NewExpense() {
 
     return (
         <>
+            <h3>ADD EXPENSE</h3>
             <div id="new-expense">
-                <h3>N E W &nbsp;&nbsp; E X P E N S E:</h3>
+
                 <form onSubmit={handleAddFormSubmit}>
                     <input required type="date" id="date" name="date" onChange={handleAddFormData}></input>
                     <input required id="input" type="text" name="item" placeholder="Enter expense..." onChange={handleAddFormData}></input>
@@ -87,9 +89,8 @@ function NewExpense() {
             </div>
 
             <div id="expenses">
-                <h3>L A T E S T &nbsp;&nbsp; E X P E N S E S</h3>
+                <h3>LATEST EXPENSES</h3>
                 <ul id="latest-expenses">
-
 
                     {expenses.map((expense) => (
                         <Expense
@@ -116,8 +117,6 @@ function NewExpense() {
         </>
     );
 }
-
-export default NewExpense;
 
 
 const Show5Items = (e) => {
