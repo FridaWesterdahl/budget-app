@@ -1,6 +1,5 @@
 import Filter from './Filter';
-import NewExpense from './NewExpense';
-import LatestExpense from './LatestExpense';
+import NewExpense from './Expense';
 import BigLogo from '../start/BigLogo';
 import './main.css'
 import { useState } from 'react';

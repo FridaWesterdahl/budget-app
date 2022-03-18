@@ -1,43 +1,37 @@
 import './category.css';
 import { useState } from 'react';
 
-function Options(props) {
+export function Options(props) {
     return (
-        <option id={props.id} class={props.class} value={props.name}>{props.name}</option>
+        <option id={props.id} className={props.class} value={props.name}>{props.name}</option>
     )
 }
 
-function Category() {
+export let chosenOption; //exported to Expense.js
 
-    const [state, setState] = useState({
-        ...
-        categoryOption: ""
-    });
+export default function Category() {
 
     const handleOptionChange = (event) => {
         event.preventDefault();
+        setOption(event.target.value);
+        console.log('Category(); option: ' + '"' + option + '"') //previous value
+        console.log('Category(); event.target.value ' + '"' + event.target.value + '"') //new value set
 
-        setState(event.target.value);
-
-
-        console.log('event.target.value: ' + event.target.value)
+        chosenOption = event.target.value
+        console.log('Our variable: ' + '"' + chosenOption + '"')
     }
-
-
 
 
     return (
         <>
-            <form>
-                <select id="category-options" name="categoryOption" value={state.categoryOption} onChange={handleOptionChange}>
-                    <Options id="category" class="options" name="Choose category" />
-                    <Options id="food" name="Food" />
-                    <Options id="shopping" name="Shopping" />
-                    <Options id="electronics" name="Electronics" value="Electronics" />
-                </select>
-            </form>
+            <select id="category-options" onChange={handleOptionChange}>
+                <Options id="category" className="options" name="Choose category" />
+                <Options id="food" name="Food" />
+                <Options id="shopping" name="Shopping" />
+                <Options id="electronics" name="Electronics" />
+            </select>
         </>
     );
 }
 
-export default Category;
+// export default Category;
