@@ -13,13 +13,12 @@ function Main() {
         <div id="show">
             <button id="details-button" className={click ? 'details-button-clicked' : 'details-button'}
                 onClick={handleClick} type="button" value="text">
-                S H O W &ensp;&ensp; D E T A I L S</button>
+                SHOW DETAILS</button>
 
             <div id="wrapper" className={click ? '' : 'hidden'}>
                 <Filter />
                 <div id="expense-area">
                     <NewExpense />
-                    {/* <LatestExpense /> */}
                 </div>
             </div>
             <div className={click ? 'hidden' : ''}>

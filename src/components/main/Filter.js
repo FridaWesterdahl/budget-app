@@ -1,28 +1,70 @@
+
+import Category from "./category/Category";
+import { Options } from "./category/Category";
+
 import Category from "./category/category";
+
 import './filter.css';
 import { useState } from 'react'
+import { TimespanYear } from "./category/Timespan";
+import TimespanMonth from './category/Timespan'
+import { TimespanDate } from "./category/Timespan";
+
+let filterCategoryOption;
+let filterTimesplanOption;
 
 function Filter() {
 
-    const [option, setOption] = useState("");
+    const [categoryOption, setCategoryOption] = useState("");
+    const [timespanOption, setTimespanOption] = useState("");
 
-    const handleOptionChange = (event) => {
+    const handleCategoryChange = (event) => {
         event.preventDefault();
-        setOption(event.target.value);
+        setCategoryOption(event.target.value);
 
+        filterCategoryOption = event.target.value;
         console.log('event.target.value ' + event.target.value)
-        console.log('option: ' + option)
+        console.log('option: ' + categoryOption)
     }
+
+
+
+    const handleTimespanChange = (event) => {
+        event.preventDefault();
+        setTimespanOption(event.target.value);
+
+        filterTimesplanOption = event.target.value;
+        console.log('option: ' + filterTimesplanOption)
+        console.log('event.target.value ' + event.target.value)
+
+    }
+
+    const showYear = (e) => {
+        e.preventDefault();
+        console.log('onClick Year: "' + Options.name + '"')
+    }
+
 
     return (
         <div id="aside">
             <div id="filter">
-                <h3>t i m e</h3>
-                <select id="time-filter" onChange={handleOptionChange}>
-                    <option value="" id="category" className="options">Choose timespan</option>
-                    <option value="" id="per-year">Year</option>
-                    <option value="" id="per-month">Month</option>
-                    <option value="" id="per-day">Day</option>
+                <h3>Time</h3>
+                <select id="time-filter" name="timespan-year" onChange={handleTimespanChange}>
+                    <TimespanYear />
+                </select>
+
+                <select id="time-filter" name="timespan-month" onChange={handleTimespanChange}>
+                    <TimespanMonth />
+                </select>
+                <select id="time-filter" name="timespan-date" onChange={handleTimespanChange}>
+                    <TimespanDate />
+                </select>
+
+                <h3>Category</h3>
+
+
+              <select id="category-options" name="category" onChange={handleCategoryChange}>
+                    <Category />
                 </select>
 
                 <h3>c a t e g o r y</h3>¨
@@ -31,10 +73,12 @@ function Filter() {
                 the category choosed here will be applied to the
                 latest expenses */}
                 <Category />
+
                 <p>. . . . . . . . . . . . . . .</p>
             </div>
         </div>
     );
 }
+
 
 export default Filter;

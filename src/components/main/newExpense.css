@@ -5,32 +5,20 @@
     grid-template-rows: auto;
     align-items: center;
     justify-content: center;
+    margin-top: 5px;
     margin-bottom: 30px;
     border-bottom: 3px #393a388f;
     border-top-style: none;
     border-right-style: none;
-    border-bottom-style: dotted;
+    /* border-bottom-style: dotted; */
     border-left-style: none;
-    padding-bottom: 20px;
-}
-
-#new-expense p {
-    font-size: 15px;
-    margin-bottom: 15px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 2px;
-    border-radius: 10px;
-    background-color: #1b1b1b;
-    color: #dde2d1;
-    width: fit-content;
-    box-shadow: 2px 3px 4px 0 rgba(0,0,0,0.2), 0 25px 50px 0 rgba(0,0,0,0.1);
+    padding-bottom: 5px;
 }
 
 #new-expense #date, #new-expense #input, #cost {
     background-color: #f0f1ea;
     border-radius: 5px;
-    border:none;
+    border: none;
     color:black;
     margin-left: 5px;
 }
