@@ -8,6 +8,22 @@ export function Options(props) {
 
 export default function Category() {
 
+
+
+    const [option, setOption] = useState("");
+
+    const handleOptionChange = (event) => {
+        event.preventDefault();
+        setOption(event.target.value);
+        console.log('Category(); option: ' + '"' + option + '"') //previous value
+        console.log('Category(); event.target.value ' + '"' + event.target.value + '"') //new value set
+
+        chosenOption = event.target.value
+        console.log('Our variable: ' + '"' + chosenOption + '"')
+    }
+
+
+
     return (
         <>
             <Options id="category" className="options" name="Uncategorized" />

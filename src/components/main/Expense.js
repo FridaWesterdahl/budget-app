@@ -1,10 +1,14 @@
 import './newExpense.css';
 import './latestExpense.css';
-import Category from './category/Category';
+import Category from './category/category';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 
+
 let expenseOption;
+
+import { chosenOption } from './category/category';
+
 
 let array = [];
 
@@ -15,10 +19,19 @@ function Expense(props) {
             <p className='purchase-item' item={props.item}>{props.item}</p>
             <p className='purchase-category' category={props.category}>{props.category}</p>
             <p className='purchase-cost' cost={props.cost}>{props.cost}</p>
-            <button className='remove-purchase'>❌</button>
+            <button className='remove-purchase' onClick={removeExpense}>❌</button>
         </li>
     );
 }
+
+
+const removeExpense = (event) => {
+    event.preventDefault();
+    console.log('onClick removeExpense')
+    // remove li item
+}
+
+function NewExpense() {
 
 
 export default function NewExpense() {
@@ -98,7 +111,7 @@ export default function NewExpense() {
                             date={expense.date}
                             item={expense.item}
                             category={expense.category}
-                            cost={expense.cost} />
+                            cost={expense.cost + ':-'} />
                     ))}
 
                     {/* Example data */}
@@ -117,6 +130,12 @@ export default function NewExpense() {
         </>
     );
 }
+
+
+
+export default NewExpense;
+export let moneySpent; //export to Start.js
+
 
 
 const Show5Items = (e) => {

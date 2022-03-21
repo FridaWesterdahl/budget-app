@@ -1,5 +1,9 @@
+
 import Category from "./category/Category";
 import { Options } from "./category/Category";
+
+import Category from "./category/category";
+
 import './filter.css';
 import { useState } from 'react'
 import { TimespanYear } from "./category/Timespan";
@@ -24,6 +28,7 @@ function Filter() {
     }
 
 
+
     const handleTimespanChange = (event) => {
         event.preventDefault();
         setTimespanOption(event.target.value);
@@ -38,6 +43,7 @@ function Filter() {
         e.preventDefault();
         console.log('onClick Year: "' + Options.name + '"')
     }
+
 
     return (
         <div id="aside">
@@ -56,9 +62,18 @@ function Filter() {
 
                 <h3>Category</h3>
 
-                <select id="category-options" name="category" onChange={handleCategoryChange}>
+
+              <select id="category-options" name="category" onChange={handleCategoryChange}>
                     <Category />
                 </select>
+
+                <h3>c a t e g o r y</h3>¨
+                {/* When choosed category on filter
+                and then adds new expenses
+                the category choosed here will be applied to the
+                latest expenses */}
+                <Category />
+
                 <p>. . . . . . . . . . . . . . .</p>
             </div>
         </div>
