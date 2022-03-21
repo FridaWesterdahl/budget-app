@@ -5,24 +5,10 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 
 let expenseOption;
+let expensesArray = [];
 let array = [];
 
-
 function NewExpense() {
-
-
-    function Expense(props) {
-        return (
-            <li id={props.id}>
-                <p className='purchase-date' date={props.date}>{props.date}</p>
-                <p className='purchase-item' item={props.item}>{props.item}</p>
-                <p className='purchase-category' category={props.category}>{props.category}</p>
-                <p className='purchase-cost' cost={props.cost}>{props.cost}</p>
-                <button className='remove-purchase' onClick={removeExpense}>❌</button>
-            </li>
-        );
-    }
-
     const [expenses, setExpenses] = useState([]);
     const [addFormData, setAddFormData] = useState({
         date: '',
@@ -57,7 +43,43 @@ function NewExpense() {
         const newExpenses = [...expenses, newExpense];
         setExpenses(newExpenses);
         array.push(newExpense)
-        console.log('My array ' + array.length)
+        console.log('My array: ' + array)
+
+        console.log("expenses variable:", expenses);
+
+        expensesArray.push(addFormData.cost);
+        console.log("expensesArray:", expensesArray);
+
+        document.querySelector("#date").value = "";
+        document.querySelector("#input").value = "";
+        // document.querySelector("#category-options").value = "";
+        // setOption = "Uncategorized";
+        document.querySelector("#cost").value = "";
+    }
+
+    function Expense(props) {
+        return (
+            <li id={props.id}>
+                <p className='purchase-date' date={props.date}>{props.date}</p>
+                <p className='purchase-item' item={props.item}>{props.item}</p>
+                <p className='purchase-category' category={props.category}>{props.category}</p>
+                <p className='purchase-cost' cost={props.cost}>{props.cost}</p>
+                <button className='remove-purchase' onClick={removeExpense}>❌</button>
+            </li>
+        );
+    }
+
+    // const [moneySpent, setMoneySpent] = useState([]);
+
+    const removeExpense = (expenseId) => {
+        console.log('onClick removeExpense')
+
+        const newExpenses = [...expenses];
+        const index = expenses.findIndex((expense) => expense.id === expenseId);
+        newExpenses.splice(index, 1);
+
+        setExpenses(newExpenses);
+        console.log("expensesArray:", expensesArray);
     }
 
     const [option, setOption] = useState("");
@@ -70,16 +92,6 @@ function NewExpense() {
 
         expenseOption = event.target.value
         console.log('Our variable: ' + '"' + expenseOption + '"')
-    }
-
-    const removeExpense = (expenseId) => {
-        console.log('onClick removeExpense')
-
-        const newExpenses = [...expenses];
-        const index = expenses.findIndex((expense) => expense.id === expenseId);
-        newExpenses.splice(index, 1);
-
-        setExpenses(newExpenses);
     }
 
     return (
@@ -127,7 +139,6 @@ function NewExpense() {
 }
 
 export default NewExpense;
-// export let moneySpent; //export to Start.js
 
 
 const Show5Items = (e) => {
