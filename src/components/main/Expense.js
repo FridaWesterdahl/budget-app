@@ -7,26 +7,21 @@ import { nanoid } from 'nanoid';
 let expenseOption;
 let array = [];
 
-function Expense(props) {
-    return (
-        <li id={props.id}>
-            <p className='purchase-date' date={props.date}>{props.date}</p>
-            <p className='purchase-item' item={props.item}>{props.item}</p>
-            <p className='purchase-category' category={props.category}>{props.category}</p>
-            <p className='purchase-cost' cost={props.cost}>{props.cost}</p>
-            <button className='remove-purchase' onClick={removeExpense}>❌</button>
-        </li>
-    );
-}
-
-const removeExpense = (event) => {
-    event.preventDefault();
-    console.log('onClick removeExpense')
-    // remove li item
-}
 
 function NewExpense() {
 
+
+    function Expense(props) {
+        return (
+            <li id={props.id}>
+                <p className='purchase-date' date={props.date}>{props.date}</p>
+                <p className='purchase-item' item={props.item}>{props.item}</p>
+                <p className='purchase-category' category={props.category}>{props.category}</p>
+                <p className='purchase-cost' cost={props.cost}>{props.cost}</p>
+                <button className='remove-purchase' onClick={removeExpense}>❌</button>
+            </li>
+        );
+    }
 
     const [expenses, setExpenses] = useState([]);
     const [addFormData, setAddFormData] = useState({
@@ -52,7 +47,7 @@ function NewExpense() {
         event.preventDefault();
 
         const newExpense = {
-            key: nanoid(),
+            id: nanoid(),
             date: addFormData.date,
             item: addFormData.item,
             category: expenseOption,
@@ -77,6 +72,15 @@ function NewExpense() {
         console.log('Our variable: ' + '"' + expenseOption + '"')
     }
 
+    const removeExpense = (expenseId) => {
+        console.log('onClick removeExpense')
+
+        const newExpenses = [...expenses];
+        const index = expenses.findIndex((expense) => expense.id === expenseId);
+        newExpenses.splice(index, 1);
+
+        setExpenses(newExpenses);
+    }
 
     return (
         <>
@@ -106,9 +110,9 @@ function NewExpense() {
                     ))}
 
                     {/* Example data */}
-                    <Expense date="2022-01-03" item="Car" category="Other" cost="30000:-" />
-                    <Expense date="2022-01-03" item="Shoes" category="Shopping" cost="800:-" />
-                    <Expense date="2022-01-03" item="Clothes" category="Shopping" cost="500:-" />
+                    <Expense id="1" date="2022-01-03" item="Car" category="Other" cost="30000:-" />
+                    <Expense id="2" date="2022-01-03" item="Shoes" category="Shopping" cost="800:-" />
+                    <Expense id="3" date="2022-01-03" item="Clothes" category="Shopping" cost="500:-" />
                 </ul>
 
                 <div id="show-alternative">
