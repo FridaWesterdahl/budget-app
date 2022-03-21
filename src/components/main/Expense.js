@@ -4,12 +4,7 @@ import Category from './category/category';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 
-
 let expenseOption;
-
-import { chosenOption } from './category/category';
-
-
 let array = [];
 
 function Expense(props) {
@@ -24,7 +19,6 @@ function Expense(props) {
     );
 }
 
-
 const removeExpense = (event) => {
     event.preventDefault();
     console.log('onClick removeExpense')
@@ -33,8 +27,6 @@ const removeExpense = (event) => {
 
 function NewExpense() {
 
-
-export default function NewExpense() {
 
     const [expenses, setExpenses] = useState([]);
     const [addFormData, setAddFormData] = useState({
@@ -85,11 +77,11 @@ export default function NewExpense() {
         console.log('Our variable: ' + '"' + expenseOption + '"')
     }
 
+
     return (
         <>
             <h3>ADD EXPENSE</h3>
             <div id="new-expense">
-
                 <form onSubmit={handleAddFormSubmit}>
                     <input required type="date" id="date" name="date" onChange={handleAddFormData}></input>
                     <input required id="input" type="text" name="item" placeholder="Enter expense..." onChange={handleAddFormData}></input>
@@ -104,7 +96,6 @@ export default function NewExpense() {
             <div id="expenses">
                 <h3>LATEST EXPENSES</h3>
                 <ul id="latest-expenses">
-
                     {expenses.map((expense) => (
                         <Expense
                             id={expense.id}
@@ -131,11 +122,8 @@ export default function NewExpense() {
     );
 }
 
-
-
 export default NewExpense;
-export let moneySpent; //export to Start.js
-
+// export let moneySpent; //export to Start.js
 
 
 const Show5Items = (e) => {
