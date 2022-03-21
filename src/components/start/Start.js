@@ -10,7 +10,7 @@ function Money(props) {
 
 
 
-function Start() {
+export default function Start() {
     const [budget, setBudget] = useState("");
 
     const handleBudgetChange = (event) => {
@@ -31,10 +31,6 @@ function Start() {
 
     return (
         <>
-            {/* <header>
-                    <h1 id="header">BUDGET APP</h1>
-                    <h2 id="h2">by NeverDontGiveUp Dev.</h2>
-                </header> */}
             <section id="graph">
                 <img src="https://mb.cision.com/Public/977/3482646/aa5533be0d43e6fc_800x800ar.png"></img>
             </section>
@@ -58,6 +54,3 @@ function Start() {
         </>
     );
 }
-
-
-export default Start;

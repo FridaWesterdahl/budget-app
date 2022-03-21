@@ -1,5 +1,4 @@
 import './category.css';
-import { useState } from 'react';
 
 export function Options(props) {
     return (
@@ -7,9 +6,9 @@ export function Options(props) {
     )
 }
 
-export let chosenOption; //exported to Expense.js
-
 export default function Category() {
+
+
 
     const [option, setOption] = useState("");
 
@@ -24,16 +23,13 @@ export default function Category() {
     }
 
 
+
     return (
         <>
-            <select id="category-options" onChange={handleOptionChange}>
-                <Options id="category" className="options" name="Choose category" />
-                <Options id="food" name="Food" />
-                <Options id="shopping" name="Shopping" />
-                <Options id="electronics" name="Electronics" />
-            </select>
+            <Options id="category" className="options" name="Uncategorized" />
+            <Options id="food" name="Food" />
+            <Options id="shopping" name="Shopping" />
+            <Options id="electronics" name="Electronics" />
         </>
     );
 }
-
-// export default Category;
