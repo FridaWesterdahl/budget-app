@@ -16,7 +16,7 @@
     text-align: center;
 }
 
-#time-filter {
+.filter-time, #filter-category {
     max-width: max-content;
     min-height: 20px;
     font-size: 12px;
@@ -27,6 +27,8 @@
     border-radius: 5px;
     font-size: 12px;
 }
+
+
 
 @media screen and (max-width: 463px) {
     #aside {
