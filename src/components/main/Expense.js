@@ -44,7 +44,7 @@ export default function NewExpense() {
         setExpenses(newExpenses);
 
         let itemCost = (parseInt(addFormData.cost));
-        expensesArray.push({ id: newExpense.id, cost: itemCost });
+        expensesArray.push({ cost: itemCost, id: newExpense.id });
 
         moneySpent = expensesArray.reduce((total, item) => {
             return total + item.cost;
@@ -59,7 +59,7 @@ export default function NewExpense() {
 
     function Expense(props) {
         return (
-            <li id={props.id}>
+            <li key={props.id}>
                 <p className='purchase-date' date={props.date}>{props.date}</p>
                 <p className='purchase-item' item={props.item}>{props.item}</p>
                 <p className='purchase-category' category={props.category}>{props.category}</p>
@@ -70,15 +70,29 @@ export default function NewExpense() {
     }
 
 
-    const removeExpense = (expenseId) => {
+    const removeExpense = (expenseKey) => {
         console.log('onClick removeExpense')
 
         const newExpenses = [...expenses];
-        const index = expenses.findIndex((expense) => expense.id === expenseId);
+        console.log('const newExpenses: ' + newExpenses)
+        console.log('Length BEFORE: ' + expenses.length)
+        for (const iterator of expenses) {
+
+           expenses.pop(iterator.key)
+           console.log('iterator key: ' + expenses.key)
+
+
+        }
+        const index = expenses.findIndex((expense) => expense.key === expenseKey);
+        console.log('removeExpense EVENT index: ' + index)
         newExpenses.splice(index, 1);
 
         setExpenses(newExpenses);
         console.log("expensesArray:", expensesArray);
+
+        //när onclick triggas dvs this.item tas bort =>
+        //då ska summan av this.item plussas tillbaka till kassan/budget
+        //moneySpent += cost
     }
 
     const [option, setOption] = useState("");
@@ -98,7 +112,7 @@ export default function NewExpense() {
             <h3>ADD EXPENSE</h3>
             <div id="new-expense">
                 <form onSubmit={handleAddFormSubmit}>
-                    <input required type="date" id="date" name="date" onChange={handleAddFormData}></input>
+                    <input id="date" type="date" name="date" onChange={handleAddFormData}></input>
                     <input required id="input" type="text" name="item" placeholder="Enter expense..." onChange={handleAddFormData}></input>
                     <select id="category-options" name="category" onChange={handleOptionChange}>
                         <Category />
@@ -113,7 +127,7 @@ export default function NewExpense() {
                 <ul id="latest-expenses">
                     {expenses.map((expense) => (
                         <Expense
-                            id={expense.id}
+                            key={expense.id}
                             date={expense.date}
                             item={expense.item}
                             category={expense.category}
