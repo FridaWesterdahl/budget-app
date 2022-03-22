@@ -6,16 +6,16 @@ import { nanoid } from 'nanoid';
 
 let expenseOption;
 let expensesArray = [];
-let array = [];
+export let moneySpent = 0;
 
-function NewExpense() {
+export default function NewExpense() {
     const [expenses, setExpenses] = useState([]);
     const [addFormData, setAddFormData] = useState({
         date: '',
         item: '',
         category: '',
         cost: ''
-    })
+    });
 
     const handleAddFormData = (event) => {
         event.preventDefault();
@@ -42,18 +42,18 @@ function NewExpense() {
 
         const newExpenses = [...expenses, newExpense];
         setExpenses(newExpenses);
-        array.push(newExpense)
-        console.log('My array: ' + array)
 
-        console.log("expenses variable:", expenses);
+        let itemCost = (parseInt(addFormData.cost));
+        expensesArray.push({ id: newExpense.id, cost: itemCost });
 
-        expensesArray.push(addFormData.cost);
-        console.log("expensesArray:", expensesArray);
+        moneySpent = expensesArray.reduce((total, item) => {
+            return total + item.cost;
+        }, 0);
+        console.log("moneySpent:", moneySpent)
 
         document.querySelector("#date").value = "";
         document.querySelector("#input").value = "";
-        // document.querySelector("#category-options").value = "";
-        // setOption = "Uncategorized";
+        document.querySelector("#category-options").value = "Uncategorized";
         document.querySelector("#cost").value = "";
     }
 
@@ -69,7 +69,6 @@ function NewExpense() {
         );
     }
 
-    // const [moneySpent, setMoneySpent] = useState([]);
 
     const removeExpense = (expenseId) => {
         console.log('onClick removeExpense')
@@ -137,8 +136,6 @@ function NewExpense() {
         </>
     );
 }
-
-export default NewExpense;
 
 
 const Show5Items = (e) => {
