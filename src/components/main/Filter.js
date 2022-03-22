@@ -45,19 +45,19 @@ function Filter() {
         <div id="aside">
             <div id="filter">
                 <h3>Time</h3>
-                <select id="time-filter" name="timespan-year" onChange={handleTimespanChange}>
+                <select className="filter-time" name="timespan-year" onChange={handleTimespanChange}>
                     <TimespanYear />
                 </select>
 
-                <select id="time-filter" name="timespan-month" onChange={handleTimespanChange}>
+                <select className="filter-time" name="timespan-month" onChange={handleTimespanChange}>
                     <TimespanMonth />
                 </select>
-                <select id="time-filter" name="timespan-date" onChange={handleTimespanChange}>
+                <select className="filter-time" name="timespan-date" onChange={handleTimespanChange}>
                     <TimespanDate />
                 </select>
 
                 <h3>Category</h3>
-                <select id="category-options" name="category" onChange={handleCategoryChange}>
+                <select id="filter-category" name="category" onChange={handleCategoryChange}>
                     <Category />
                 </select>
                 <p>. . . . . . . . . . . . . . .</p>
