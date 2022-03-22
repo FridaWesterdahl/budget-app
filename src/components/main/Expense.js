@@ -6,6 +6,7 @@ import { nanoid } from 'nanoid';
 
 let expenseOption;
 let expensesArray = [];
+let keyVar;
 export let moneySpent = 0;
 
 export default function NewExpense() {
@@ -39,7 +40,8 @@ export default function NewExpense() {
             category: expenseOption,
             cost: addFormData.cost
         };
-
+        keyVar = newExpense.id;
+        console.log("keyVar:", keyVar)
         const newExpenses = [...expenses, newExpense];
         setExpenses(newExpenses);
 
@@ -59,7 +61,7 @@ export default function NewExpense() {
 
     function Expense(props) {
         return (
-            <li id={props.id}>
+            <li id={props.id} key={keyVar}>
                 <p className='purchase-date' date={props.date}>{props.date}</p>
                 <p className='purchase-item' item={props.item}>{props.item}</p>
                 <p className='purchase-category' category={props.category}>{props.category}</p>
@@ -69,12 +71,11 @@ export default function NewExpense() {
         );
     }
 
-
-    const removeExpense = (expenseId) => {
+    const removeExpense = () => {
         console.log('onClick removeExpense')
 
         const newExpenses = [...expenses];
-        const index = expenses.findIndex((expense) => expense.id === expenseId);
+        const index = expenses.findIndex((expense) => expense.id === expense.key);
         newExpenses.splice(index, 1);
 
         setExpenses(newExpenses);
@@ -114,6 +115,7 @@ export default function NewExpense() {
                     {expenses.map((expense) => (
                         <Expense
                             id={expense.id}
+                            key={expense.id}
                             date={expense.date}
                             item={expense.item}
                             category={expense.category}
