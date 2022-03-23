@@ -33,7 +33,7 @@ export default function NewExpense() {
     const handleAddFormSubmit = (event) => {
         event.preventDefault();
 
-        const newExpenseObject = {
+        const newExpense = {
             id: nanoid(),
             date: addFormData.date,
             item: addFormData.item,
@@ -41,16 +41,11 @@ export default function NewExpense() {
             cost: (parseInt(addFormData.cost))
         };
 
-        const addNewExpense = [...expenses, newExpenseObject];
-        setExpenses(addNewExpense);
-        console.log(newExpenseObject);
-        console.log('ID: ' + newExpenseObject.id)
-
+        newExpense = [...expenses, newExpense];
+        setExpenses(newExpense);
 
         keyVar = newExpense.id;
         // console.log("keyVar:", keyVar)
-
-
 
         document.querySelector("#date").value = "";
         document.querySelector("#input").value = "";
@@ -65,10 +60,7 @@ export default function NewExpense() {
 
     function Expense(props) {
         return (
-
             <li id={props.id} key={keyVar}>
-
-
                 <p className='purchase-date' date={props.date}>{props.date}</p>
                 <p className='purchase-item' item={props.item}>{props.item}</p>
                 <p className='purchase-category' category={props.category}>{props.category}</p>
@@ -151,8 +143,6 @@ export default function NewExpense() {
                 <ul id="latest-expenses">
                     {expenses.map((expense) => (
                         <Expense
-
-
                             key={expense.id}
                             date={expense.date}
                             item={expense.item}
