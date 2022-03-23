@@ -33,7 +33,7 @@ export default function NewExpense() {
     const handleAddFormSubmit = (event) => {
         event.preventDefault();
 
-        const newExpense = {
+        const newExpenseObject = {
             id: nanoid(),
             date: addFormData.date,
             item: addFormData.item,
@@ -41,11 +41,16 @@ export default function NewExpense() {
             cost: (parseInt(addFormData.cost))
         };
 
-        const newExpenses = [...expenses, newExpense];
-        setExpenses(newExpenses);
+        const addNewExpense = [...expenses, newExpenseObject];
+        setExpenses(addNewExpense);
+        console.log(newExpenseObject);
+        console.log('ID: ' + newExpenseObject.id)
+
 
         keyVar = newExpense.id;
         // console.log("keyVar:", keyVar)
+
+
 
         document.querySelector("#date").value = "";
         document.querySelector("#input").value = "";
@@ -60,17 +65,18 @@ export default function NewExpense() {
 
     function Expense(props) {
         return (
+
             <li id={props.id} key={keyVar}>
+
+
                 <p className='purchase-date' date={props.date}>{props.date}</p>
                 <p className='purchase-item' item={props.item}>{props.item}</p>
                 <p className='purchase-category' category={props.category}>{props.category}</p>
-                <p className='purchase-cost' cost={props.cost}>{props.cost}</p>
+                <p className='purchase-cost' cost={props.cost}>{props.cost} </p>
                 <button className='remove-purchase' onClick={removeExpense}>❌</button>
             </li>
         );
     }
-
-
 
     const removeExpense = () => {
         console.log('onClick removeExpense')
@@ -130,12 +136,12 @@ export default function NewExpense() {
             <h3>ADD EXPENSE</h3>
             <div id="new-expense">
                 <form onSubmit={handleAddFormSubmit}>
-                    <input required type="date" id="date" name="date" onChange={handleAddFormData}></input>
+                    <input id="date" type="date" name="date" onChange={handleAddFormData}></input>
                     <input required id="input" type="text" name="item" placeholder="Enter expense..." onChange={handleAddFormData}></input>
                     <select id="category-options" name="category" onChange={handleOptionChange}>
                         <Category />
                     </select>
-                    <input required id="cost" type="number" name="cost" placeholder="cost" onChange={handleAddFormData}></input>
+                    <input id="cost" type="number" name="cost" placeholder="cost" onChange={handleAddFormData}></input>
                     <button type="submit" className="submit" onSubmit={handleAddFormSubmit}>add</button>
                 </form>
             </div>
@@ -145,7 +151,8 @@ export default function NewExpense() {
                 <ul id="latest-expenses">
                     {expenses.map((expense) => (
                         <Expense
-                            id={expense.id}
+
+
                             key={expense.id}
                             date={expense.date}
                             item={expense.item}
