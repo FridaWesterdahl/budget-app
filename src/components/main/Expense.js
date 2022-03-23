@@ -3,13 +3,14 @@ import './latestExpense.css';
 import Category from './category/category';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
+import data from '../start/data.json';
 
 let expenseOption;
-let expensesArray = [];
+let keyVar;
 export let moneySpent = 0;
 
 export default function NewExpense() {
-    const [expenses, setExpenses] = useState([]);
+    const [expenses, setExpenses] = useState(data);
     const [addFormData, setAddFormData] = useState({
         date: '',
         item: '',
@@ -37,7 +38,7 @@ export default function NewExpense() {
             date: addFormData.date,
             item: addFormData.item,
             category: expenseOption,
-            cost: addFormData.cost
+            cost: (parseInt(addFormData.cost))
         };
 
         const addNewExpense = [...expenses, newExpenseObject];
@@ -45,20 +46,11 @@ export default function NewExpense() {
         console.log(newExpenseObject);
         console.log('ID: ' + newExpenseObject.id)
 
-        let itemCost = (parseInt(addFormData.cost));
 
-        expensesArray.push({ id: newExpenseObject.id, cost: itemCost });
-        
-        console.log('expensesArray.length: ' + expensesArray.length)
+        keyVar = newExpense.id;
+        console.log("keyVar:", keyVar)
 
-        expensesArray.forEach(element => {
-            console.log('Array Foreach:' + element.id)
-        });
 
-        moneySpent = expensesArray.reduce((total, item) => {
-            return total + item.cost
-        }, 0);
-        console.log("moneySpent: " + moneySpent)
 
         document.querySelector("#date").value = "";
         document.querySelector("#input").value = "";
@@ -66,9 +58,17 @@ export default function NewExpense() {
         document.querySelector("#cost").value = "";
     }
 
+    moneySpent = expenses.reduce((total, item) => {
+        return total + item.cost;
+    }, 0);
+    console.log("moneySpent:", moneySpent);
+
     function Expense(props) {
         return (
-            <li key={props.id}>
+
+            <li id={props.id} key={keyVar}>
+
+
                 <p className='purchase-date' date={props.date}>{props.date}</p>
                 <p className='purchase-item' item={props.item}>{props.item}</p>
                 <p className='purchase-category' category={props.category}>{props.category}</p>
@@ -79,48 +79,19 @@ export default function NewExpense() {
     }
 
 
-    const removeExpense = (expense) => {
+    const removeExpense = () => {
         console.log('onClick removeExpense')
 
-
-        // const removeExpense = [...expenses];
-
-        // expenses.forEach(element => {
-        //     console.log('element: ' + element.id)
-        // });
-
-        // const index = removeExpense.findIndex((expenses) => expenses.id === newExpenseObject.id);
-        // console.log('removeExpense EVENT index: ' + index)
-        // console.log('removeExpense.length: ' + removeExpense.length)
-        // console.log('expenses.keys: ' + expenses.keys)
-        // console.log('expenses.key: ' + expenses.key)
-        // console.log('expenses.id: ' + expenses.id)
+        const newExpenses = [...expenses];
+        const index = expenses.findIndex(expense => expense === expense.id);
+        console.log("index:", index)
+        newExpenses.splice(index, 1);
 
 
-
-        expensesArray.forEach(element => {
-            console.log('Array Foreach: ' + element.id)
-            console.log('newExpenseObject id: '+ expense.id)
-
-            // if(element.id == newExpenseObject.id)
-        });
-        // removeExpense.splice(index, 1);
-        // console.log("expensesArray addnewExp:", removeExpense.length);
-        // setExpenses(removeExpense);
+        setExpenses(newExpenses);
+        console.log("newExpenseArray:", newExpenses);
         // console.log("expensesArray:", expensesArray);
-
-
-        //DENNA FUNKAR EJ
-        // const index = expenses.findIndex((expense) => expense.key === expense.key);
-        // console.log('removeExpense EVENT index: ' + index)
-        // removeNewExpense.splice(index, 1);
-        // console.log("expensesArray addnewExp:", removeNewExpense.length);
-        // setExpenses(removeNewExpense);
-        // console.log("expensesArray:", expensesArray);
-
-        //när onclick triggas dvs this.item tas bort =>
-        //då ska summan av this.item plussas tillbaka till kassan/budget
-        //moneySpent += cost
+===
     }
 
     const [option, setOption] = useState("");
@@ -155,17 +126,14 @@ export default function NewExpense() {
                 <ul id="latest-expenses">
                     {expenses.map((expense) => (
                         <Expense
+
+
                             key={expense.id}
                             date={expense.date}
                             item={expense.item}
                             category={expense.category}
                             cost={expense.cost + ':-'} />
                     ))}
-
-                    {/* Example data */}
-                    <Expense id="1" date="2022-01-03" item="Car" category="Other" cost="30000:-" />
-                    <Expense id="2" date="2022-01-03" item="Shoes" category="Shopping" cost="800:-" />
-                    <Expense id="3" date="2022-01-03" item="Clothes" category="Shopping" cost="500:-" />
                 </ul>
 
                 <div id="show-alternative">

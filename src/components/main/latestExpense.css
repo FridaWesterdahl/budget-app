@@ -18,7 +18,7 @@
   #latest-expenses li {
       background-color: #f0f1ea;
       display: grid;
-      grid-template-columns: 67px auto 120px 50px 11px;
+      grid-template-columns: 67px auto 90px 50px 11px;
       grid-template-areas: "a b c d e";
       border: 1px #6a6d6679;
       border-style: groove;
