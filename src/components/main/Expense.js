@@ -1,42 +1,28 @@
 import './newExpense.css';
 import './latestExpense.css';
-import Category from './category/Category';
+import Category from './category/category';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 
 let expenseOption;
-
-let array = [];
-
-function Expense(props) {
-    return (
-        <li id={props.id}>
-            <p className='purchase-date' date={props.date}>{props.date}</p>
-            <p className='purchase-item' item={props.item}>{props.item}</p>
-            <p className='purchase-category' category={props.category}>{props.category}</p>
-            <p className='purchase-cost' cost={props.cost}>{props.cost}</p>
-            <button className='remove-purchase'>❌</button>
-        </li>
-    );
-}
-
+let expensesArray = [];
+export let moneySpent = 0;
 
 export default function NewExpense() {
-
     const [expenses, setExpenses] = useState([]);
     const [addFormData, setAddFormData] = useState({
         date: '',
         item: '',
         category: '',
         cost: ''
-    })
+    });
 
     const handleAddFormData = (event) => {
         event.preventDefault();
 
         const targetInput = event.target.getAttribute("name");
         const inputValue = event.target.value;
-        console.log('inputValue: ' + '"' + inputValue + '"')
+        // console.log('inputValue: ' + '"' + inputValue + '"')
 
         const newFormData = { ...addFormData };
         newFormData[targetInput] = inputValue;
@@ -46,18 +32,95 @@ export default function NewExpense() {
     const handleAddFormSubmit = (event) => {
         event.preventDefault();
 
-        const newExpense = {
-            key: nanoid(),
+        const newExpenseObject = {
+            id: nanoid(),
             date: addFormData.date,
             item: addFormData.item,
             category: expenseOption,
             cost: addFormData.cost
         };
 
-        const newExpenses = [...expenses, newExpense];
-        setExpenses(newExpenses);
-        array.push(newExpense)
-        console.log('My array ' + array.length)
+        const addNewExpense = [...expenses, newExpenseObject];
+        setExpenses(addNewExpense);
+        console.log(newExpenseObject);
+        console.log('ID: ' + newExpenseObject.id)
+
+        let itemCost = (parseInt(addFormData.cost));
+
+        expensesArray.push({ id: newExpenseObject.id, cost: itemCost });
+        
+        console.log('expensesArray.length: ' + expensesArray.length)
+
+        expensesArray.forEach(element => {
+            console.log('Array Foreach:' + element.id)
+        });
+
+        moneySpent = expensesArray.reduce((total, item) => {
+            return total + item.cost
+        }, 0);
+        console.log("moneySpent: " + moneySpent)
+
+        document.querySelector("#date").value = "";
+        document.querySelector("#input").value = "";
+        document.querySelector("#category-options").value = "Uncategorized";
+        document.querySelector("#cost").value = "";
+    }
+
+    function Expense(props) {
+        return (
+            <li key={props.id}>
+                <p className='purchase-date' date={props.date}>{props.date}</p>
+                <p className='purchase-item' item={props.item}>{props.item}</p>
+                <p className='purchase-category' category={props.category}>{props.category}</p>
+                <p className='purchase-cost' cost={props.cost}>{props.cost} </p>
+                <button className='remove-purchase' onClick={removeExpense}>❌</button>
+            </li>
+        );
+    }
+
+
+    const removeExpense = (expense) => {
+        console.log('onClick removeExpense')
+
+
+        // const removeExpense = [...expenses];
+
+        // expenses.forEach(element => {
+        //     console.log('element: ' + element.id)
+        // });
+
+        // const index = removeExpense.findIndex((expenses) => expenses.id === newExpenseObject.id);
+        // console.log('removeExpense EVENT index: ' + index)
+        // console.log('removeExpense.length: ' + removeExpense.length)
+        // console.log('expenses.keys: ' + expenses.keys)
+        // console.log('expenses.key: ' + expenses.key)
+        // console.log('expenses.id: ' + expenses.id)
+
+
+
+        expensesArray.forEach(element => {
+            console.log('Array Foreach: ' + element.id)
+            console.log('newExpenseObject id: '+ expense.id)
+
+            // if(element.id == newExpenseObject.id)
+        });
+        // removeExpense.splice(index, 1);
+        // console.log("expensesArray addnewExp:", removeExpense.length);
+        // setExpenses(removeExpense);
+        // console.log("expensesArray:", expensesArray);
+
+
+        //DENNA FUNKAR EJ
+        // const index = expenses.findIndex((expense) => expense.key === expense.key);
+        // console.log('removeExpense EVENT index: ' + index)
+        // removeNewExpense.splice(index, 1);
+        // console.log("expensesArray addnewExp:", removeNewExpense.length);
+        // setExpenses(removeNewExpense);
+        // console.log("expensesArray:", expensesArray);
+
+        //när onclick triggas dvs this.item tas bort =>
+        //då ska summan av this.item plussas tillbaka till kassan/budget
+        //moneySpent += cost
     }
 
     const [option, setOption] = useState("");
@@ -76,14 +139,13 @@ export default function NewExpense() {
         <>
             <h3>ADD EXPENSE</h3>
             <div id="new-expense">
-
                 <form onSubmit={handleAddFormSubmit}>
-                    <input required type="date" id="date" name="date" onChange={handleAddFormData}></input>
+                    <input id="date" type="date" name="date" onChange={handleAddFormData}></input>
                     <input required id="input" type="text" name="item" placeholder="Enter expense..." onChange={handleAddFormData}></input>
                     <select id="category-options" name="category" onChange={handleOptionChange}>
                         <Category />
                     </select>
-                    <input required id="cost" type="number" name="cost" placeholder="cost" onChange={handleAddFormData}></input>
+                    <input id="cost" type="number" name="cost" placeholder="cost" onChange={handleAddFormData}></input>
                     <button type="submit" className="submit" onSubmit={handleAddFormSubmit}>add</button>
                 </form>
             </div>
@@ -91,20 +153,19 @@ export default function NewExpense() {
             <div id="expenses">
                 <h3>LATEST EXPENSES</h3>
                 <ul id="latest-expenses">
-
                     {expenses.map((expense) => (
                         <Expense
-                            id={expense.id}
+                            key={expense.id}
                             date={expense.date}
                             item={expense.item}
                             category={expense.category}
-                            cost={expense.cost} />
+                            cost={expense.cost + ':-'} />
                     ))}
 
                     {/* Example data */}
-                    <Expense date="2022-01-03" item="Car" category="Other" cost="30000:-" />
-                    <Expense date="2022-01-03" item="Shoes" category="Shopping" cost="800:-" />
-                    <Expense date="2022-01-03" item="Clothes" category="Shopping" cost="500:-" />
+                    <Expense id="1" date="2022-01-03" item="Car" category="Other" cost="30000:-" />
+                    <Expense id="2" date="2022-01-03" item="Shoes" category="Shopping" cost="800:-" />
+                    <Expense id="3" date="2022-01-03" item="Clothes" category="Shopping" cost="500:-" />
                 </ul>
 
                 <div id="show-alternative">
