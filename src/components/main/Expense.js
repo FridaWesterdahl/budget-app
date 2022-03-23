@@ -73,42 +73,41 @@ export default function NewExpense() {
     const removeExpense = () => {
         console.log('onClick removeExpense')
 
-        const newExpenses = [...expenses];
-        const index = newExpenses.findIndex(x => x.id === expenses.id);
-        console.log("index:", index)
-        console.log('expense.length: ' + expenses.length)
-        console.log("expenses:", expenses)
+        this.reduce()
+
+        let newExpenses = [...expenses];
+        // newExpenses = Object.assign([], expenses);
+        // index = newExpenses.indexOf(newExpenses);
+        // newExpenses.splice(index, 1);
+        // console.log("index:", index)
+
+
+
+        for (var i = 0; i < newExpenses.length; i++) {
+            var obj = newExpenses[i];
+
+            if (newExpenses.indexOf(obj.id) !== -1) {
+                newExpenses.splice(i, 1);
+            }
+        }
+
+        setExpenses(newExpenses);
+        console.log("newExpenseArray:", newExpenses);
+
+        // console.log('expense.length: ' + expenses.length)
+        // console.log("expenses:", expenses)
         // console.log('expense id: ' + expense.id)
         // console.log('expense id: ' + expense.id)
         // console.log('expense key: ' + expense.key)
 
-        for (let i = 0; i < newExpenses.length; i++) {
-            const element = newExpenses[i];
-            console.log('for-loop item id: ' + element.id)
-            // let index = element.
-            //DETTA FUNKAR!!!! /\
-            // console.log('for-loop newExpense key: ' + expense.key)
-
-            let elementId = element.id;
-            let expensesId = expenses.id;
-            console.log("expenseId:", expensesId);
-            if (elementId === expensesId) {
-                console.log('bajs')
-                // newExpenses.splice([i], 1);
-            }
-            const found = newExpenses.find(x => x.id == element.id)
-            console.log('FOUND: ' + found.id)
+        // for (let i = 0; i < newExpenses.length; i++) {
+        //     const element = newExpenses[i];
+        //     console.log('for-loop item index: ' + element.index)
+        // }
 
 
-        }
-
-        //newExpenses bör vara array
-
-
-
-        setExpenses(newExpenses);
-        console.log("newExpenseArray:", newExpenses);
-        // console.log("expensesArray:", expensesArray);
+        // let index = newExpenses.indexOf(this.expense.id);
+        // console.log("index:", index)
     }
 
     const [option, setOption] = useState("");
@@ -141,13 +140,14 @@ export default function NewExpense() {
             <div id="expenses">
                 <h3>LATEST EXPENSES</h3>
                 <ul id="latest-expenses">
-                    {expenses.map((expense) => (
+                    {expenses.map((expense, index) => (
                         <Expense
                             key={expense.id}
                             date={expense.date}
                             item={expense.item}
                             category={expense.category}
-                            cost={expense.cost + ':-'} />
+                            cost={expense.cost + ':-'}
+                            delete={removeExpense.bind(index)} />
                     ))}
                 </ul>
 

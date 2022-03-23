@@ -14,7 +14,7 @@ let getBudget;
 export default function Start() {
     const [budget, setBudget] = useState("");
 
-    moneyLeft = (budget - moneySpent);
+    // moneyLeft = (budget - moneySpent);
     // console.log("start moneySpent:", moneySpent);
 
     const handleBudgetChange = (event) => {
