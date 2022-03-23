@@ -48,7 +48,7 @@ export default function NewExpense() {
 
 
         keyVar = newExpense.id;
-        console.log("keyVar:", keyVar)
+        // console.log("keyVar:", keyVar)
 
 
 
@@ -61,7 +61,7 @@ export default function NewExpense() {
     moneySpent = expenses.reduce((total, item) => {
         return total + item.cost;
     }, 0);
-    console.log("moneySpent:", moneySpent);
+    // console.log("moneySpent:", moneySpent);
 
     function Expense(props) {
         return (
@@ -78,20 +78,45 @@ export default function NewExpense() {
         );
     }
 
-
     const removeExpense = () => {
         console.log('onClick removeExpense')
 
         const newExpenses = [...expenses];
-        const index = expenses.findIndex(expense => expense === expense.id);
+        const index = newExpenses.findIndex(x => x.id === expenses.id);
         console.log("index:", index)
-        newExpenses.splice(index, 1);
+        console.log('expense.length: ' + expenses.length)
+        console.log("expenses:", expenses)
+        // console.log('expense id: ' + expense.id)
+        // console.log('expense id: ' + expense.id)
+        // console.log('expense key: ' + expense.key)
+
+        for (let i = 0; i < newExpenses.length; i++) {
+            const element = newExpenses[i];
+            console.log('for-loop item id: ' + element.id)
+            // let index = element.
+            //DETTA FUNKAR!!!! /\
+            // console.log('for-loop newExpense key: ' + expense.key)
+
+            let elementId = element.id;
+            let expensesId = expenses.id;
+            console.log("expenseId:", expensesId);
+            if (elementId === expensesId) {
+                console.log('bajs')
+                // newExpenses.splice([i], 1);
+            }
+            const found = newExpenses.find(x => x.id == element.id)
+            console.log('FOUND: ' + found.id)
+
+
+        }
+
+        //newExpenses bör vara array
+
 
 
         setExpenses(newExpenses);
         console.log("newExpenseArray:", newExpenses);
         // console.log("expensesArray:", expensesArray);
-===
     }
 
     const [option, setOption] = useState("");
@@ -99,11 +124,11 @@ export default function NewExpense() {
     const handleOptionChange = (event) => {
         event.preventDefault();
         setOption(event.target.value);
-        console.log('Category(); option: ' + '"' + option + '"') //previous value
-        console.log('Category(); event.target.value ' + '"' + event.target.value + '"') //new value set
+        // console.log('Category(); option: ' + '"' + option + '"') //previous value
+        // console.log('Category(); event.target.value ' + '"' + event.target.value + '"') //new value set
 
         expenseOption = event.target.value
-        console.log('Our variable: ' + '"' + expenseOption + '"')
+        // console.log('Our variable: ' + '"' + expenseOption + '"')
     }
 
     return (
