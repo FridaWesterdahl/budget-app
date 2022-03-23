@@ -2,6 +2,7 @@ import './start.css';
 import React, { useState } from 'react';
 import { moneySpent } from '../main/Expense.js';
 
+
 function Money(props) {
     return (
         <p id={props.id} name={props.name} money={props.money}>{props.name}: {props.money}</p>
@@ -11,20 +12,26 @@ function Money(props) {
 export default function Start() {
     const [budget, setBudget] = useState("");
 
+    let moneyLeft = (budget - moneySpent);
+    // console.log("start moneySpent:", moneySpent);
+
     const handleBudgetChange = (event) => {
         event.preventDefault();
         setBudget(event.target.value);
-        console.log(budget)
-        console.log("BudgetChange moneySpent:", moneySpent)
+        // console.log(budget)
+        // console.log("BudgetChange moneySpent:", moneySpent)
     }
 
     const handleBudgetSubmit = (event) => {
         event.preventDefault();
-        console.log("submit", budget)
-        console.log("BudgetSubmit moneySpent:", moneySpent)
+        // console.log("submit", budget)
+        // console.log("BudgetSubmit moneySpent:", moneySpent)
     }
 
-    let moneyLeft = (budget - moneySpent);
+    const handleMoneySpentChange = (event) => {
+        event.preventDefault();
+        moneySpent = moneySpent;
+    }
 
     return (
         <>
@@ -42,9 +49,9 @@ export default function Start() {
                             onChange={handleBudgetChange}
                         >
                         </input></p>
-                    <button type="submit" id="submit" onSubmit={handleBudgetSubmit}>submit</button>
+                    {/* <button type="submit" id="submit" onSubmit={handleBudgetSubmit}>submit</button> */}
                 </form>
-                <Money id="money-spent" name="Money spent" money={moneySpent + ':-'} />
+                <Money id="money-spent" name="Money spent" onChange={handleMoneySpentChange} money={moneySpent + ':-'} />
                 <Money id="money-left" name="Money left" money={moneyLeft + ':-'} />
             </div>
 
