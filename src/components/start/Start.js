@@ -12,14 +12,14 @@ function Money(props) {
 let getBudget;
 
 export default function Start() {
-    let [budget, setBudget] = useState("");
+    const [budget, setBudget] = useState("");
 
-    let moneyLeft = (budget - moneySpent);
+    moneyLeft = (budget - moneySpent);
     // console.log("start moneySpent:", moneySpent);
 
     const handleBudgetChange = (event) => {
         event.preventDefault();
-        
+
         //setBudget triggas på en onChange() dvs när setBudget ÄNDRAS
         //Betyder att moneyLeft visas NÄR man ändrar {budget}
 
@@ -44,9 +44,9 @@ export default function Start() {
         moneySpent = moneySpent;
     }
 
-        console.log("handleBudgetChange() moneySpent:", moneySpent)
-        console.log('--------------------')
-    }
+    console.log("handleBudgetChange() moneySpent:", moneySpent)
+    console.log('--------------------')
+
 
     // const handleBudgetSubmit = (event) => {
     //     event.preventDefault();
