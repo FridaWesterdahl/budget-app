@@ -74,35 +74,20 @@ export default function NewExpense() {
         console.log('onClick removeExpense')
 
         const newExpenses = [...expenses];
-        const index = newExpenses.findIndex(x => x.id === expenses.id);
+        const index = expenses.indexOf(keyVar)
         console.log("index:", index)
-        console.log('expense.length: ' + expenses.length)
-        console.log("expenses:", expenses)
+        // console.log('expense.length: ' + expenses.length)
+        // console.log("expenses:", expenses)
         // console.log('expense id: ' + expense.id)
         // console.log('expense id: ' + expense.id)
         // console.log('expense key: ' + expense.key)
 
-        for (let i = 0; i < newExpenses.length; i++) {
-            const element = newExpenses[i];
-            console.log('for-loop item id: ' + element.id)
-            // let index = element.
-            //DETTA FUNKAR!!!! /\
-            // console.log('for-loop newExpense key: ' + expense.key)
-
-            let elementId = element.id;
-            let expensesId = expenses.id;
-            console.log("expenseId:", expensesId);
-            if (elementId === expensesId) {
-                console.log('bajs')
-                // newExpenses.splice([i], 1);
-            }
-            const found = newExpenses.find(x => x.id == element.id)
-            console.log('FOUND: ' + found.id)
-
-
-        }
-
-        //newExpenses bör vara array
+        // for (let i = 0; i < newExpenses.length; i++) {
+        //     const element = newExpenses[i];
+        //     console.log('for-loop item id: ' + element.id)
+        // let index = element.
+        //DETTA FUNKAR!!!! /\
+        // console.log('for-loop newExpense key: ' + expense.key)
 
 
 
