@@ -11,7 +11,7 @@ function Money(props) {
 let getBudget;
 
 export default function Start() {
-    const [budget, setBudget] = useState("");
+    let [budget, setBudget] = useState("");
 
     const handleBudgetChange = (event) => {
         event.preventDefault();
@@ -24,7 +24,6 @@ export default function Start() {
         //Dvs när man trycker på Add i NEW EXPENSE
 
         setBudget(event.target.value);
-        console.log(budget)
         console.log("handleBudgetChange() moneySpent:", moneySpent)
         console.log('--------------------')
     }
@@ -35,8 +34,8 @@ export default function Start() {
     //     console.log("BudgetSubmit moneySpent:", moneySpent)
     // }
 
-    
-    let moneyLeft = (budget - moneySpent);
+    let moneyLeft = 0;
+    moneyLeft = (budget - moneySpent);
     console.log('budget in Start(): ' + budget)
     console.log('moneyLeft in Start(): ' + moneyLeft)
     console.log('moneySpent in Start(): ' + moneySpent)
