@@ -1,0 +1,194 @@
+[
+    {
+        "id": 1,
+        "key": 1,
+        "date": "2021-01-01",
+        "item": "Drunk pizza",
+        "category": "Food",
+        "cost": 100
+    },
+    {
+        "id": 2,
+        "key": 2,
+        "date": "2021-02-14",
+        "item": "Date with Brad Pitt",
+        "category": "Food",
+        "cost": 2000
+    },
+    {
+        "id": 3,
+        "key": 3,
+        "date": "2021-03-03",
+        "item": "Groceries",
+        "category": "Food",
+        "cost": 200
+    },
+    {
+        "id": 4,
+        "key": 4,
+        "date": "2021-04-11",
+        "item": "Movie date with Brad",
+        "category": "Other",
+        "cost": 300
+    },
+    {
+        "id": 5,
+        "key": 5,
+        "date": "2021-05-20",
+        "item": "Flight to Brad",
+        "category": "Other",
+        "cost": 3000
+    },
+    {
+        "id": 6,
+        "key": 6,
+        "date": "2021-06-07",
+        "item": "New car",
+        "category": "Other",
+        "cost": 180000
+    },
+    {
+        "id": 7,
+        "key": 7,
+        "date": "2021-07-25",
+        "item": "Fiesta",
+        "category": "Other",
+        "cost": 3000
+    },
+    {
+        "id": 8,
+        "key": 8,
+        "date": "2021-08-10",
+        "item": "Groceries",
+        "category": "Food",
+        "cost": 500
+    },
+    {
+        "id": 9,
+        "key": 9,
+        "date": "2021-09-18",
+        "item": "Flight to Brad",
+        "category": "Other",
+        "cost": 3000
+    },
+    {
+        "id": 10,
+        "key": 10,
+        "date": "2021-10-06",
+        "item": "Clothes",
+        "category": "Shopping",
+        "cost": 800
+    },
+    {
+        "id": 11,
+        "key": 11,
+        "date": "2021-11-23",
+        "item": "Flight to Brad",
+        "category": "Other",
+        "cost": 3000
+    },
+    {
+        "id": 12,
+        "key": 12,
+        "date": "2021-12-24",
+        "item": "Christmas gifts",
+        "category": "Uncategorized",
+        "cost": 5000
+    },
+    {
+        "id": 13,
+        "key": 13,
+        "date": "2022-01-01",
+        "item": "Drunk pizza",
+        "category": "Food",
+        "cost": 100
+    },
+    {
+        "id": 14,
+        "key": 14,
+        "date": "2022-02-14",
+        "item": "Date with Brad Pitt",
+        "category": "Food",
+        "cost": 2000
+    },
+    {
+        "id": 15,
+        "key": 15,
+        "date": "2022-03-03",
+        "item": "Groceries",
+        "category": "Food",
+        "cost": 200
+    },
+    {
+        "id": 16,
+        "key": 16,
+        "date": "2022-04-11",
+        "item": "Movie date with Brad",
+        "category": "Other",
+        "cost": 300
+    },
+    {
+        "id": 17,
+        "key": 17,
+        "date": "2022-05-20",
+        "item": "Flight to Brad",
+        "category": "Other",
+        "cost": 3000
+    },
+    {
+        "id": 18,
+        "key": 18,
+        "date": "2022-06-07",
+        "item": "New car",
+        "category": "Other",
+        "cost": 180000
+    },
+    {
+        "id": 19,
+        "key": 19,
+        "date": "2022-07-25",
+        "item": "Fiesta",
+        "category": "Other",
+        "cost": 3000
+    },
+    {
+        "id": 20,
+        "key": 20,
+        "date": "2022-08-10",
+        "item": "Groceries",
+        "category": "Food",
+        "cost": 500
+    },
+    {
+        "id": 21,
+        "key": 21,
+        "date": "2022-09-18",
+        "item": "Flight to Brad",
+        "category": "Other",
+        "cost": 3000
+    },
+    {
+        "id": 22,
+        "key": 22,
+        "date": "2022-10-06",
+        "item": "Clothes",
+        "category": "Shopping",
+        "cost": 800
+    },
+    {
+        "id": 23,
+        "key": 23,
+        "date": "2022-11-23",
+        "item": "Flight to Brad",
+        "category": "Other",
+        "cost": 3000
+    },
+    {
+        "id": 24,
+        "key": 24,
+        "date": "2022-12-24",
+        "item": "Christmas gifts",
+        "category": "Uncategorized",
+        "cost": 5000
+    }
+]

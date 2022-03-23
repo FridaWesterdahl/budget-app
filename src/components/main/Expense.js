@@ -3,14 +3,14 @@ import './latestExpense.css';
 import Category from './category/category';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
+import data from '../start/data.json';
 
 let expenseOption;
-let expensesArray = [];
 let keyVar;
 export let moneySpent = 0;
 
 export default function NewExpense() {
-    const [expenses, setExpenses] = useState([]);
+    const [expenses, setExpenses] = useState(data);
     const [addFormData, setAddFormData] = useState({
         date: '',
         item: '',
@@ -38,26 +38,25 @@ export default function NewExpense() {
             date: addFormData.date,
             item: addFormData.item,
             category: expenseOption,
-            cost: addFormData.cost
+            cost: (parseInt(addFormData.cost))
         };
-        keyVar = newExpense.id;
-        console.log("keyVar:", keyVar)
+
         const newExpenses = [...expenses, newExpense];
         setExpenses(newExpenses);
 
-        let itemCost = (parseInt(addFormData.cost));
-        expensesArray.push({ id: newExpense.id, cost: itemCost });
-
-        moneySpent = expensesArray.reduce((total, item) => {
-            return total + item.cost;
-        }, 0);
-        console.log("moneySpent:", moneySpent)
+        keyVar = newExpense.id;
+        console.log("keyVar:", keyVar)
 
         document.querySelector("#date").value = "";
         document.querySelector("#input").value = "";
         document.querySelector("#category-options").value = "Uncategorized";
         document.querySelector("#cost").value = "";
     }
+
+    moneySpent = expenses.reduce((total, item) => {
+        return total + item.cost;
+    }, 0);
+    console.log("moneySpent:", moneySpent);
 
     function Expense(props) {
         return (
@@ -75,11 +74,14 @@ export default function NewExpense() {
         console.log('onClick removeExpense')
 
         const newExpenses = [...expenses];
-        const index = expenses.findIndex((expense) => expense.id === expense.key);
+        const index = expenses.findIndex(expense => expense === expense.id);
+        console.log("index:", index)
         newExpenses.splice(index, 1);
 
+
         setExpenses(newExpenses);
-        console.log("expensesArray:", expensesArray);
+        console.log("newExpenseArray:", newExpenses);
+        // console.log("expensesArray:", expensesArray);
     }
 
     const [option, setOption] = useState("");
@@ -121,11 +123,6 @@ export default function NewExpense() {
                             category={expense.category}
                             cost={expense.cost + ':-'} />
                     ))}
-
-                    {/* Example data */}
-                    <Expense id="1" date="2022-01-03" item="Car" category="Other" cost="30000:-" />
-                    <Expense id="2" date="2022-01-03" item="Shoes" category="Shopping" cost="800:-" />
-                    <Expense id="3" date="2022-01-03" item="Clothes" category="Shopping" cost="500:-" />
                 </ul>
 
                 <div id="show-alternative">
