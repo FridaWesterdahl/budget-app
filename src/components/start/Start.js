@@ -1,6 +1,7 @@
 import './start.css';
 import React, { useState } from 'react';
-import { moneySpent } from '../main/Expense.js';
+import Expense, { moneySpent, copyArray } from '../main/Expense.js';
+
 
 
 function Money(props) {
@@ -12,9 +13,9 @@ function Money(props) {
 let getBudget;
 
 export default function Start() {
-    const [budget, setBudget] = useState("");
+    const [budget, setBudget] = useState(500000);
 
-    moneyLeft = (budget - moneySpent);
+    // moneyLeft = (budget - moneySpent);
     // console.log("start moneySpent:", moneySpent);
 
     const handleBudgetChange = (event) => {
@@ -44,8 +45,8 @@ export default function Start() {
         moneySpent = moneySpent;
     }
 
-    console.log("handleBudgetChange() moneySpent:", moneySpent)
-    console.log('--------------------')
+    // console.log("handleBudgetChange() moneySpent:", moneySpent)
+
 
 
     // const handleBudgetSubmit = (event) => {
@@ -54,11 +55,15 @@ export default function Start() {
     //     console.log("BudgetSubmit moneySpent:", moneySpent)
     // }
 
+
+
+    // let moneySpent2 = newArray.reduce((total, item) => {
+    //     return total + item.cost;
+    // }, 0);
+    // console.log("moneySpent2:", moneySpent2);
+
     let moneyLeft = 0;
-    moneyLeft = (budget - moneySpent);
-    console.log('budget in Start(): ' + budget)
-    console.log('moneyLeft in Start(): ' + moneyLeft)
-    console.log('moneySpent in Start(): ' + moneySpent)
+    moneyLeft = (budget - moneySpent)
 
     return (
         <>
