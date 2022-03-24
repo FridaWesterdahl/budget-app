@@ -8,6 +8,7 @@ import data from '../start/data.json';
 let expenseOption;
 let keyVar;
 export let moneySpent = 0;
+export let copyArray = [];
 
 export default function NewExpense() {
     const [expenses, setExpenses] = useState(data);
@@ -17,6 +18,8 @@ export default function NewExpense() {
         category: '',
         cost: ''
     });
+
+    copyArray = [...expenses];
 
     const handleAddFormData = (event) => {
         event.preventDefault();
@@ -60,54 +63,30 @@ export default function NewExpense() {
 
     function Expense(props) {
         return (
-            <li id={props.id} key={keyVar}>
+            <li id={props.id} key={keyVar} className="listItem">
                 <p className='purchase-date' date={props.date}>{props.date}</p>
                 <p className='purchase-item' item={props.item}>{props.item}</p>
                 <p className='purchase-category' category={props.category}>{props.category}</p>
                 <p className='purchase-cost' cost={props.cost}>{props.cost} </p>
-                <button className='remove-purchase' onClick={removeExpense}>❌</button>
+                <button className='remove-purchase' onClick={() => removeExpense(props.id)}>❌</button>
             </li>
         );
     }
 
-    const removeExpense = () => {
+    const removeExpense = (expense) => {
         console.log('onClick removeExpense')
-
-        this.reduce()
 
         let newExpenses = [...expenses];
         // newExpenses = Object.assign([], expenses);
         // index = newExpenses.indexOf(newExpenses);
         // newExpenses.splice(index, 1);
-        // console.log("index:", index)
 
-
-
-        for (var i = 0; i < newExpenses.length; i++) {
-            var obj = newExpenses[i];
-
-            if (newExpenses.indexOf(obj.id) !== -1) {
-                newExpenses.splice(i, 1);
-            }
-        }
+        let index = newExpenses.indexOf(expense);
+        newExpenses.splice(index, 1);
+        console.log("index:", index)
 
         setExpenses(newExpenses);
         console.log("newExpenseArray:", newExpenses);
-
-        // console.log('expense.length: ' + expenses.length)
-        // console.log("expenses:", expenses)
-        // console.log('expense id: ' + expense.id)
-        // console.log('expense id: ' + expense.id)
-        // console.log('expense key: ' + expense.key)
-
-        // for (let i = 0; i < newExpenses.length; i++) {
-        //     const element = newExpenses[i];
-        //     console.log('for-loop item index: ' + element.index)
-        // }
-
-
-        // let index = newExpenses.indexOf(this.expense.id);
-        // console.log("index:", index)
     }
 
     const [option, setOption] = useState("");
@@ -142,12 +121,14 @@ export default function NewExpense() {
                 <ul id="latest-expenses">
                     {expenses.map((expense, index) => (
                         <Expense
+                            id={expense.id}
                             key={expense.id}
                             date={expense.date}
                             item={expense.item}
                             category={expense.category}
                             cost={expense.cost + ':-'}
-                            delete={removeExpense.bind(index)} />
+                        // delete={removeExpense.bind(index)}
+                        />
                     ))}
                 </ul>
 
