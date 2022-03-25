@@ -1,0 +1,147 @@
+
+[
+    {
+        "date": "2021-01-01",
+        "item": "Drunk pizza",
+        "category": "Food",
+        "cost": 100
+    },
+    {
+        "date": "2021-02-14",
+        "item": "Date with Brad Pitt",
+        "category": "Food",
+        "cost": 2000
+    },
+    {
+        "date": "2021-03-03",
+        "item": "Groceries",
+        "category": "Food",
+        "cost": 200
+    },
+    {
+        "date": "2021-04-11",
+        "item": "Movie date with Brad",
+        "category": "Other",
+        "cost": 300
+    },
+    {
+        "date": "2021-05-20",
+        "item": "Flight to Brad",
+        "category": "Other",
+        "cost": 3000
+    },
+    {
+        "date": "2021-06-07",
+        "item": "New car",
+        "category": "Other",
+        "cost": 180000
+    },
+    {
+        "date": "2021-07-25",
+        "item": "Fiesta",
+        "category": "Other",
+        "cost": 3000
+    },
+    {
+        "date": "2021-08-10",
+        "item": "Groceries",
+        "category": "Food",
+        "cost": 500
+    },
+    {
+        "date": "2021-09-18",
+        "item": "Flight to Brad",
+        "category": "Other",
+        "cost": 3000
+    },
+    {
+        "date": "2021-10-06",
+        "item": "Clothes",
+        "category": "Shopping",
+        "cost": 800
+    },
+    {
+        "date": "2021-11-23",
+        "item": "Flight to Brad",
+        "category": "Other",
+        "cost": 3000
+    },
+    {
+        "date": "2021-12-24",
+        "item": "Christmas gifts",
+        "category": "Uncategorized",
+        "cost": 5000
+    },
+    {
+        "date": "2022-01-01",
+        "item": "Drunk pizza",
+        "category": "Food",
+        "cost": 100
+    },
+    {
+        "date": "2022-02-14",
+        "item": "Date with Brad Pitt",
+        "category": "Food",
+        "cost": 2000
+    },
+    {
+        "date": "2022-03-03",
+        "item": "Groceries",
+        "category": "Food",
+        "cost": 200
+    },
+    {
+        "date": "2022-04-11",
+        "item": "Movie date with Brad",
+        "category": "Other",
+        "cost": 300
+    },
+    {
+        "date": "2022-05-20",
+        "item": "Flight to Brad",
+        "category": "Other",
+        "cost": 3000
+    },
+    {
+        "date": "2022-06-07",
+        "item": "New car",
+        "category": "Other",
+        "cost": 180000
+    },
+    {
+        "date": "2022-07-25",
+        "item": "Fiesta",
+        "category": "Other",
+        "cost": 3000
+    },
+    {
+        "date": "2022-08-10",
+        "item": "Groceries",
+        "category": "Food",
+        "cost": 500
+    },
+    {
+        "date": "2022-09-18",
+        "item": "Flight to Brad",
+        "category": "Other",
+        "cost": 3000
+    },
+    {
+        "date": "2022-10-06",
+        "item": "Clothes",
+        "category": "Shopping",
+        "cost": 800
+    },
+    {
+        "date": "2022-11-23",
+        "item": "Flight to Brad",
+        "category": "Other",
+        "cost": 3000
+    },
+    {
+        "date": "2022-12-24",
+        "item": "Christmas gifts",
+        "category": "Uncategorized",
+        "cost": 5000
+    }
+]

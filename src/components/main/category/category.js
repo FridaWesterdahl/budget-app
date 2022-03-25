@@ -1,22 +1,20 @@
 import './category.css';
 
-function Options(props) {
+export function Options(props) {
     return (
-        <option id={props.id} class={props.class} value={props.name}>{props.name}</option>
+        <option id={props.id} className={props.class} value={props.name}>{props.name}</option>
     )
-  }
+}
 
-function Category() {
+export default function Category() {
+
     return (
         <>
-            <select id="category-options">
-                <Options id="category" class="options" name="Choose category" />
-                <Options id="food" name="Food" />
-                <Options id="shopping" name="Shopping" />
-                <Options id="electronics" name="Electronics" />
-            </select>
+            <Options id="category" className="options" name="Uncategorized" />
+            <Options id="food" name="Food" />
+            <Options id="shopping" name="Shopping" />
+            <Options id="electronics" name="Electronics" />
+            <Options id="other" name="Other" />
         </>
     );
 }
-
-export default Category;

@@ -1,22 +1,20 @@
-#aside {
-    grid-area: a;
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-    margin-left: 5px;
-}
 
 #filter {
+    justify-content: center;
+    display: grid;
+    grid-template-areas: 
+    "a b"
+    "c d";
+    column-gap: 50px;
     background-color: #b6c09f;
-    padding: 10px;
-    padding-bottom: 25px;
-    margin-top: 10px;
+    padding-bottom: 20px;
+    margin-top: -10px;
     border-radius: 8px;
-    box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.2), 0 25px 50px 0 rgba(0,0,0,0.1);
     text-align: center;
+    width: 85%;
 }
 
-#time-filter, #category-options {
+.filter-time, #filter-category {
     max-width: max-content;
     min-height: 20px;
     font-size: 12px;
@@ -26,5 +24,44 @@
     padding: 1px;
     border-radius: 5px;
     font-size: 12px;
+    margin-right: 5px;
 }
+
+#filter-title {
+    grid-area: a;
+}
+
+.filter-time {
+    grid-area: c;
+}
+
+#filter-wrapper {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#category-title {
+    grid-area: b;
+    margin-right: 40px;
+}
+
+#filter-category {
+    grid-area: d;
+    margin-left: 20px;
+}
+
+
+@media screen and (max-width: 463px) {
+    #aside {
+         width: 70%;
+     }
+
+    #show-details-button {
+        width: max-content;
+        font-size: 13px;
+     }
+   }
+ 
 
