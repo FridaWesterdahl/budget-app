@@ -1,5 +1,4 @@
 #new-expense {
-    grid-area: b;
     display: grid;
     width: 100%;
     grid-template-rows: auto;
@@ -10,7 +9,6 @@
     border-bottom: 3px #393a388f;
     border-top-style: none;
     border-right-style: none;
-    /* border-bottom-style: dotted; */
     border-left-style: none;
     padding-bottom: 5px;
 }
@@ -40,18 +38,19 @@
 }
 
 #cost {
-    width: 55px;
+    width: 65px;
     text-align: center;
   }
 
-
+form {
+  justify-content: center;
+}
 .submit {
     font-size: 12px;
     border-radius: 10px;
     border: none;
     margin-left: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 0 10px;
     background-color: #1b1b1b;
     color:#b6c09f;
     box-shadow: 2px 3px 4px 0 rgba(0,0,0,0.2), 0 25px 50px 0 rgba(0,0,0,0.1);
