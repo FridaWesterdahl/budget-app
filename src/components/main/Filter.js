@@ -8,15 +8,18 @@ import { TimespanDate } from "./category/Timespan";
 // import ExpenseItem from "./ExpenseItem";
 
 
-export default function Filter( {expenses, setExpenses, month}) {
+export default function Filter({ expenses, setExpenses }) {
 
     const [categoryOption, setCategoryOption] = useState("");
 
-    const handleCategoryChange = (event) => {
-        event.preventDefault();
-        setCategoryOption(event.target.value);
+    const handleCategoryChange = (category) => {
+        setCategoryOption(category.target.value);
+        console.log('Choosed category: ' + category.target.value)
 
-        console.log('event.target.value ' + event.target.value)
+        const sort = expenses.filter(c => c.category.value == category.target.value);
+        setExpenses(sort);
+
+
     }
 
     const [timespanOption, setTimespanOption] = useState("");
@@ -56,33 +59,33 @@ export default function Filter( {expenses, setExpenses, month}) {
 
         // console.log("reault:", result)
         // console.log("dates:", dates)
-        console.log('timeSpanOption: ' + timespanOption)
-        console.log('event.target.value ' + event.target.value)
+        // console.log('timeSpanOption: ' + timespanOption)
+        // console.log('event.target.value ' + event.target.value)
 
     }
 
-    const bajs = (date) => {
-        return date.month !== month.target.value;
-    }
+    // const bajs = (date) => {
+    //     return date.month !== month.target.value;
+    // }
 
-    const handleTimespanChangeMonth = (month) => {
-        console.log('month.target.value: '+ month.target.value)
-        console.log('month: ' + month)
-        setTimespanOption(month.target.value);
+    const handleTimespanChangeMonth = () => {
+        // console.log('month.target.value: '+ month.target.value)
+        // console.log('month: ' + month)
+        // setTimespanOption(month.target.value);
 
-        let total = expenses.filter(bajs);
-        setExpenses(total);
+        // let total = expenses.filter(bajs);
+        // setExpenses(total);
 
         // const removeExpense = (id) => {
-            //         console.log('onClick removeExpense')
-            
-            //         let newExpenses = [...expenses];
-            //         let filterExpenses = newExpenses.filter(x => x.id !== id)
-            
-            //         setExpenses(filterExpenses);
-            //         console.log("newExpenseArray:", newExpenses);
-            //     }
-    } 
+        //         console.log('onClick removeExpense')
+
+        //         let newExpenses = [...expenses];
+        //         let filterExpenses = newExpenses.filter(x => x.id !== id)
+
+        //         setExpenses(filterExpenses);
+        //         console.log("newExpenseArray:", newExpenses);
+        //     }
+    }
 
     const handleTimespanChangeDate = (event) => {
         event.preventDefault();
@@ -97,9 +100,9 @@ export default function Filter( {expenses, setExpenses, month}) {
 
     return (
 
-            <div id="filter">
-                <h3 id="filter-title">Time</h3>
-                <div id="filter-wrapper">
+        <div id="filter">
+            <h3 id="filter-title">Time</h3>
+            <div id="filter-wrapper">
                 <select className="filter-time" name="timespan-year" onChange={handleTimespanChangeYear}>
                     <TimespanYear />
                 </select>
@@ -110,11 +113,11 @@ export default function Filter( {expenses, setExpenses, month}) {
                 <select className="filter-time" name="timespan-date" onChange={handleTimespanChangeDate}>
                     <TimespanDate />
                 </select>
-                </div>
-                <h3 id="category-title">Category</h3>
-                <select id="filter-category" name="category" onChange={handleCategoryChange}>
-                    <Category />
-                </select>
             </div>
+            <h3 id="category-title">Category</h3>
+            <select id="filter-category" name="category" onChange={handleCategoryChange}>
+                <Category />
+            </select>
+        </div>
     );
 }
