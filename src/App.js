@@ -10,6 +10,7 @@ export default function App() {
   const [expenses, setExpenses] = useState(data);
   const [totalExpenses, setTotalExpenses] = useState(0);
 
+
   useEffect(() => {
     let moneySpent = 0;
     for (let i = 0; i < expenses.length; i++) {
@@ -19,11 +20,9 @@ export default function App() {
     setTotalExpenses(moneySpent);
   }, [expenses]);
 
-  data.sort((a, b) => {
+  expenses.sort((a, b) => {
     return new Date(b.date) - new Date(a.date);
   })
-
-  
 
   return (
     <>

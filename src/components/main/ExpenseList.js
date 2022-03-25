@@ -9,25 +9,20 @@ export default function ExpenseList({ expenses, setExpenses }) {
         setExpenses(total);
     }
 
-    const sortByDate = (a, b) => {
-        return a.date - b.date;
-    }
-
-    
     return (
         <div id="expenses">
             <h3>LATEST EXPENSES</h3>
             <ul id="latest-expenses">
-            {
-                expenses.sort(sortByDate).map((value, index) => (
-                    <ExpenseItem
-                        index={index}
-                        key={index}
-                        expenses={value}
-                        removeExpense={removeExpense}
-                    />
-                ))
-            } 
+                {
+                    expenses.map((value, index) => (
+                        <ExpenseItem
+                            index={index}
+                            key={index}
+                            expenses={value}
+                            removeExpense={removeExpense}
+                        />
+                    ))
+                }
             </ul>
         </div>
     )
