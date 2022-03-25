@@ -14,6 +14,7 @@ export default function Category() {
             <Options id="food" name="Food" />
             <Options id="shopping" name="Shopping" />
             <Options id="electronics" name="Electronics" />
+            <Options id="other" name="Other" />
         </>
     );
 }

@@ -5,22 +5,21 @@ import { useState } from 'react'
 import { TimespanYear } from "./category/Timespan";
 import TimespanMonth from './category/Timespan'
 import { TimespanDate } from "./category/Timespan";
-import Expense, { copyArray } from './Expense';
+// import ExpenseItem from "./ExpenseItem";
 
-let filterCategoryOption;
-let filterTimespanOption;
 
-function Filter() {
-    console.log("copyArray:", copyArray)
+export default function Filter({ expenses, setExpenses }) {
+
     const [categoryOption, setCategoryOption] = useState("");
 
-    const handleCategoryChange = (event) => {
-        event.preventDefault();
-        setCategoryOption(event.target.value);
+    const handleCategoryChange = (category) => {
+        setCategoryOption(category.target.value);
+        console.log('Choosed category: ' + category.target.value)
 
-        filterCategoryOption = event.target.value;
-        console.log('event.target.value ' + event.target.value)
-        console.log('option: ' + categoryOption)
+        const sort = expenses.filter(c => c.category.value == category.target.value);
+        setExpenses(sort);
+
+
     }
 
     const [timespanOption, setTimespanOption] = useState("");
@@ -45,33 +44,47 @@ function Filter() {
 
         // }
 
-        for (let li of copyArray) {
-            let liDate = li.date;
-            console.log("liDate:", liDate)
-            if (!liDate.includes(event.target.value)) {
-                let listItem = document.querySelector(".listItem");
-                if (listItem.includes(liDate)) {
-                    listItem.classList.add("hidden");
-                }
-                console.log("bajs")
-            }
-        }
+        // for (let li of copyArray) {
+        //     let liDate = li.date;
+        //     console.log("liDate:", liDate)
+        //     if (!liDate.includes(event.target.value)) {
+        //         let listItem = document.querySelector(".listItem");
+        //         if (listItem.includes(liDate)) {
+        //             listItem.classList.add("hidden");
+        //         }
+        //         console.log("bajs")
+        //     }
+        // }
 
 
         // console.log("reault:", result)
         // console.log("dates:", dates)
-        console.log('timeSpanOption: ' + timespanOption)
-        console.log('event.target.value ' + event.target.value)
+        // console.log('timeSpanOption: ' + timespanOption)
+        // console.log('event.target.value ' + event.target.value)
 
     }
 
-    const handleTimespanChangeMonth = (event) => {
-        event.preventDefault();
-        setTimespanOption(event.target.value);
+    // const bajs = (date) => {
+    //     return date.month !== month.target.value;
+    // }
 
-        console.log('timeSpanOption: ' + timespanOption)
-        console.log('event.target.value ' + event.target.value)
+    const handleTimespanChangeMonth = () => {
+        // console.log('month.target.value: '+ month.target.value)
+        // console.log('month: ' + month)
+        // setTimespanOption(month.target.value);
 
+        // let total = expenses.filter(bajs);
+        // setExpenses(total);
+
+        // const removeExpense = (id) => {
+        //         console.log('onClick removeExpense')
+
+        //         let newExpenses = [...expenses];
+        //         let filterExpenses = newExpenses.filter(x => x.id !== id)
+
+        //         setExpenses(filterExpenses);
+        //         console.log("newExpenseArray:", newExpenses);
+        //     }
     }
 
     const handleTimespanChangeDate = (event) => {
@@ -86,9 +99,10 @@ function Filter() {
 
 
     return (
-        <div id="aside">
-            <div id="filter">
-                <h3>Time</h3>
+
+        <div id="filter">
+            <h3 id="filter-title">Time</h3>
+            <div id="filter-wrapper">
                 <select className="filter-time" name="timespan-year" onChange={handleTimespanChangeYear}>
                     <TimespanYear />
                 </select>
@@ -99,16 +113,11 @@ function Filter() {
                 <select className="filter-time" name="timespan-date" onChange={handleTimespanChangeDate}>
                     <TimespanDate />
                 </select>
-
-                <h3>Category</h3>
-                <select id="filter-category" name="category" onChange={handleCategoryChange}>
-                    <Category />
-                </select>
-                <p>. . . . . . . . . . . . . . .</p>
             </div>
+            <h3 id="category-title">Category</h3>
+            <select id="filter-category" name="category" onChange={handleCategoryChange}>
+                <Category />
+            </select>
         </div>
     );
 }
-
-
-export default Filter;
