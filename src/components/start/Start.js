@@ -1,6 +1,5 @@
 import './start.css';
 import React, { useState } from 'react';
-import { moneySpent } from '../main/Expense.js';
 
 function Money(props) {
     return (
@@ -8,25 +7,41 @@ function Money(props) {
     );
 }
 
-let getBudget;
 
-export default function Start() {
-    let [budget, setBudget] = useState("");
+export default function Start({totalExpenses}) {
+    const [budget, setBudget] = useState(500000);
+
+    let moneyLeft = (budget - totalExpenses);
+    // // console.log("start moneySpent:", moneySpent);
 
     const handleBudgetChange = (event) => {
         event.preventDefault();
-        
-        //setBudget triggas på en onChange() dvs när setBudget ÄNDRAS
-        //Betyder att moneyLeft visas NÄR man ändrar {budget}
 
-        //CONCLUSION:
-        //Det bör ändras när man lägger till en utgift/expense =>
-        //Dvs när man trycker på Add i NEW EXPENSE
 
         setBudget(event.target.value);
-        console.log("handleBudgetChange() moneySpent:", moneySpent)
-        console.log('--------------------')
     }
+
+    // const handleBudgetSubmit = (event) => {
+    //     event.preventDefault();
+    //     // console.log("submit", budget)
+    //     // console.log("BudgetSubmit moneySpent:", moneySpent)
+    // }
+
+    // const [amount, setAmount] = useState("");
+    // const handleMoneySpentChange = (event) => {
+    //     event.preventDefault();
+ 
+    //     setAmount(event.target.value)
+    // }
+
+    // const handleMoneyLeftChange = (event) => {
+    //     event.preventDefault();
+        
+    // }
+
+    // console.log("handleBudgetChange() moneySpent:", moneySpent)
+
+
 
     // const handleBudgetSubmit = (event) => {
     //     event.preventDefault();
@@ -34,11 +49,12 @@ export default function Start() {
     //     console.log("BudgetSubmit moneySpent:", moneySpent)
     // }
 
-    let moneyLeft = 0;
-    moneyLeft = (budget - moneySpent);
-    console.log('budget in Start(): ' + budget)
-    console.log('moneyLeft in Start(): ' + moneyLeft)
-    console.log('moneySpent in Start(): ' + moneySpent)
+
+
+    // let moneySpent2 = newArray.reduce((total, item) => {
+    //     return total + item.cost;
+    // }, 0);
+    // console.log("moneySpent2:", moneySpent2);
 
 
     return (
@@ -59,7 +75,7 @@ export default function Start() {
                         </input></p>
                     {/* <button type="submit" id="submit" onSubmit={handleBudgetSubmit}>submit</button> */}
                 </form>
-                <Money id="money-spent" name="Money spent" money={moneySpent + ':-'} />
+                <Money id="money-spent" name="Money spent" money={totalExpenses + ':-'} />
                 <Money id="money-left" name="Money left" money={moneyLeft + ':-'} />
             </div>
 
