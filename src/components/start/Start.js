@@ -8,7 +8,7 @@ function Money(props) {
 }
 
 
-export default function Start({totalExpenses}) {
+export default function Start({ totalExpenses }) {
     const [budget, setBudget] = useState(500000);
 
     let moneyLeft = (budget - totalExpenses);
@@ -30,13 +30,13 @@ export default function Start({totalExpenses}) {
     // const [amount, setAmount] = useState("");
     // const handleMoneySpentChange = (event) => {
     //     event.preventDefault();
- 
+
     //     setAmount(event.target.value)
     // }
 
     // const handleMoneyLeftChange = (event) => {
     //     event.preventDefault();
-        
+
     // }
 
     // console.log("handleBudgetChange() moneySpent:", moneySpent)
@@ -59,9 +59,10 @@ export default function Start({totalExpenses}) {
 
     return (
         <>
-            <section id="graph">
+            {/* <section id="graph">
                 <img src="https://mb.cision.com/Public/977/3482646/aa5533be0d43e6fc_800x800ar.png"></img>
-            </section>
+            </section> */}
+            <h1>Budget calculator</h1>
             <div id="summary">
                 <form>
                     <p>Budget in SEK:

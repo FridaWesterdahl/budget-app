@@ -1,10 +1,14 @@
+#add {
+  margin-left: 30px;
+}
+
 #new-expense {
     display: grid;
     width: 100%;
     grid-template-rows: auto;
     align-items: center;
     justify-content: center;
-    margin-top: 5px;
+    margin-top: 15px;
     margin-bottom: 30px;
     border-bottom: 3px #393a388f;
     border-top-style: none;
@@ -20,6 +24,13 @@
     color:black;
     margin-left: 5px;
 }
+
+ /* #new-expense:hover {
+  background-color: #7f807b;
+  padding-bottom: 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+} */
 
 #new-expense #date {
     font-size: 12px;

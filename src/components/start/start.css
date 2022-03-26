@@ -1,15 +1,18 @@
-header {
-    text-align: center;
+html {
+  background-image: url('./laptop-gd58a3098d_1920.jpg');
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 h1 {
+  padding-top: 20px;
     font-size: 55px;
     font-family:'Courier New', Courier, monospace;
     text-shadow: 1px 1px #4e4b4b;
-    margin-bottom: 0;
+    text-align: center;
 }
 
-#graph {
+/* #graph {
     margin-top: 50px;
     margin-bottom: 30px;
     display: flex;
@@ -18,10 +21,11 @@ h1 {
 }
 img {
     width: 50%;
-}
+} */
 
 #summary {
-  width: 100%;
+  border-radius: 8px;
+  width: 85%;
   display: flex;
   flex-direction: row;
   justify-content: center;

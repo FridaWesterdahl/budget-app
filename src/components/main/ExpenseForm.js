@@ -28,7 +28,7 @@ export default function ExpenseForm({ expenses, setExpenses }) {
 
     return (
         <div id="new-expense">
-            <h3>ADD EXPENSE</h3>
+            <h3 id="add">ADD EXPENSE</h3>
             <form onSubmit={AddExpense}>
                 <input required id="date" ref={date} type="date" name="date"></input>
                 <input required id="input" ref={item} type="text" name="item" placeholder="Enter expense..."></input>
