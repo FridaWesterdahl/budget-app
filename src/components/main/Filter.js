@@ -16,7 +16,11 @@ export default function Filter({ expenses, setExpenses }) {
         setCategoryOption(category.target.value);
         console.log('Choosed category: ' + category.target.value)
 
-        const sort = expenses.filter(c => c.category.value == category.target.value);
+        function isCategory(expenses) {
+            return (expenses.category == category.target.value)
+        }
+
+        const sort = expenses.filter(isCategory);
         setExpenses(sort);
 
 

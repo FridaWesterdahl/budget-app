@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Start from './components/start/Start';
 import Main from './components/main/main';
-import Footer from './components/footer/footer';
 import data from './components/start/data.json'
 
 export default function App() {
@@ -28,7 +27,6 @@ export default function App() {
     <>
       <Start totalExpenses={totalExpenses} />
       <Main expenses={expenses} setExpenses={setExpenses} />
-      <Footer />
     </>
   );
 } 

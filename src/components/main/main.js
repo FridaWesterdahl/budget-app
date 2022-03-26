@@ -2,12 +2,13 @@ import Filter from './Filter';
 import ExpenseForm from './ExpenseForm';
 import ExpenseList from './ExpenseList';
 import BigLogo from '../start/BigLogo';
+import Footer from '../footer/footer';
 import './main.css'
 import { useState } from 'react';
 
 
 
-export default function Main({expenses, setExpenses}) {
+export default function Main({ expenses, setExpenses }) {
 
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
@@ -25,6 +26,9 @@ export default function Main({expenses, setExpenses}) {
             </div>
             <div className={click ? 'hidden' : ''}>
                 <BigLogo />
+            </div>
+            <div className={click ? '' : 'hidden'}>
+                <Footer />
             </div>
         </div>
 
