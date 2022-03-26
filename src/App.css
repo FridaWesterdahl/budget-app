@@ -12,14 +12,9 @@
 body {
   max-width: 800px;
   margin: 0 auto;
-  background: linear-gradient(to bottom, #b6c09f 13%, #dee0d2 100%);
-}
-
-main {
-  background-color: #dee0d2;
+  /* background: linear-gradient(to bottom, #b9b9b5 13%, #e0e0dc 100%); */
+  background: #b9b9b5;
   opacity: 85%;
-  padding: 5px;
-  padding-bottom: 50px;
 }
 
 h3 {
@@ -54,7 +49,18 @@ button {
   cursor: pointer;
 }
 button:hover {
-  background-color: #4e4b4b;
+  /* background-color: #4e4b4b; */
   cursor: pointer;
   opacity: 80%;
+
+  background-image: linear-gradient(to right, var(--primary) 50%, var(--primary) 50%, var(--secondary));
+  background-size: 200%;
+  background-position: 0%;
+
+  color: var(--dark);
+  font-weight: 600;
+  text-transform: uppercase;
+
+  transition: 0.4s;
+
 }

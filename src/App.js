@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Start from './components/start/Start';
 import Main from './components/main/main';
-import Footer from './components/footer/footer';
 import data from './components/start/data.json'
 
 export default function App() {
-
+  
   const [expenses, setExpenses] = useState(data);
   const [totalExpenses, setTotalExpenses] = useState(0);
-
 
   useEffect(() => {
     let moneySpent = 0;
@@ -27,8 +25,7 @@ export default function App() {
   return (
     <>
       <Start totalExpenses={totalExpenses} />
-      <Main expenses={expenses} setExpenses={setExpenses} />
-      <Footer />
+      <Main expenses={expenses} setExpenses={setExpenses}/>
     </>
   );
 } 

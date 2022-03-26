@@ -5,10 +5,9 @@
       /* width: 490px; */
       width: 100%;
       list-style-type: none;
-      background-color: #b6c09f91;
+      background-color: #acada8;
       border-radius: 5px;
-      padding: 10px;
-      /* margin-left: 30px; */
+      padding: 0px 20px;
   }
 
   #latest-expenses li {
