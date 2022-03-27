@@ -1,6 +1,6 @@
 export function TimespanOption(props) {
     return (
-        <option id={props.id} className={props.class} value={props.value} date={props.name}>{props.name}</option>
+        <option id={props.id} className={props.class} min={props.min} max={props.max} value={props.value} date={props.name}>{props.name}</option>
     )
 }
 export function TimespanYear() {
@@ -8,8 +8,8 @@ export function TimespanYear() {
     return (
         <>
             <TimespanOption id="category" class="Timespanoption" name="Years" />
-            <TimespanOption id="2021" value="2" name="2021" />
-            <TimespanOption id="2022" value="2" name="2022" />
+            <TimespanOption id="2021" value="2021" name="2021" />
+            <TimespanOption id="2022" value="2022" min="2022-01-01" max="2022-12-31" name="2022" />
         </>
     );
 }

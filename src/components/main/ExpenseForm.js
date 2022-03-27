@@ -14,7 +14,8 @@ export default function ExpenseForm({ expenses, setExpenses }) {
         let newDate = new Date(dateSet[0], dateSet[1] - 1, dateSet[2]);
 
         setExpenses([...expenses, {
-            "date": newDate.getTime(),
+            // "date": newDate.getTime(),
+            "date": date.current.value,
             "item": item.current.value,
             "category": category.current.value,
             "cost": cost.current.value,
