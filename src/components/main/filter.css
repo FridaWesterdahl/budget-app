@@ -1,0 +1,50 @@
+#filter {
+    justify-content: center;
+    display: grid;
+    grid-template-areas: "a b";
+    column-gap: 50px;
+    background-color: #c2bbb4;
+    padding-bottom: 20px;
+    margin-top: -10px;
+    border-radius: 8px;
+    align-items: center;
+    width: 85%;
+}
+
+#search {
+    grid-area: b;
+    max-width: max-content;
+    font-size: 12px;
+    background-color: #f0f1ea;
+    color: black;
+    border: none;
+    padding: 9px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-right: 5px;
+    margin-top: 15px;
+}
+
+#filter-title {
+    grid-area: a;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#filter-wrapper {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media screen and (max-width: 463px) {
+    #filter, #filter-title, #search {
+        width: max-content;
+    }
+
+    #show-details-button {
+        width: max-content;
+        font-size: 13px;
+    }
+}

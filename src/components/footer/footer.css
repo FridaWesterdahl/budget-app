@@ -1,0 +1,22 @@
+footer {
+    display: grid;
+    grid-template-areas: "a b";
+    align-items: center;
+    justify-content: center;
+}
+
+#logo {
+    grid-area: a;
+    width: 100px;
+}
+#social {
+    grid-area: b;
+}
+footer a {
+    font-size: 14px;
+    color:rgb(8, 8, 8);
+    text-decoration: none;
+}
+footer a:hover {
+    color:rgb(136, 139, 124);
+}

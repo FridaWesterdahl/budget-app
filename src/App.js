@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Start from './components/start/Start';
+import Main from './components/main/Main';
+import data from './components/start/data.json'
 
-function App() {
+export default function App() {
+  const [expenses, setExpenses] = useState(data);
+  const [totalExpenses, setTotalExpenses] = useState(0);
+
+  useEffect(() => {
+    let moneySpent = 0;
+    for (let i = 0; i < expenses.length; i++) {
+      moneySpent += parseInt(expenses[i].cost);
+    }
+
+    setTotalExpenses(moneySpent);
+  }, [expenses]);
+
+  expenses.sort((a, b) => {
+    return new Date(b.date) - new Date(a.date);
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Start totalExpenses={totalExpenses} />
+      <Main expenses={expenses} setExpenses={setExpenses} />
+    </>
   );
-}
-
-export default App;
+} 
