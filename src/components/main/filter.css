@@ -1,12 +1,11 @@
-
 #filter {
     justify-content: center;
     display: grid;
-    grid-template-areas: 
-    "a b"
-    "c d";
+    grid-template-areas:
+        "a b"
+        "c d";
     column-gap: 50px;
-    background-color: #b6c09f;
+    background-color: #acada8;
     padding-bottom: 20px;
     margin-top: -10px;
     border-radius: 8px;
@@ -19,8 +18,8 @@
     min-height: 20px;
     font-size: 12px;
     background-color: #f0f1ea;
-    color:black;
-    border:none;
+    color: black;
+    border: none;
     padding: 1px;
     border-radius: 5px;
     font-size: 12px;
@@ -55,13 +54,11 @@
 
 @media screen and (max-width: 463px) {
     #aside {
-         width: 70%;
-     }
+        width: 70%;
+    }
 
     #show-details-button {
         width: max-content;
         font-size: 13px;
-     }
-   }
- 
-
+    }
+}

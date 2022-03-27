@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Start from './components/start/Start';
-import Main from './components/main/main';
-import Footer from './components/footer/footer';
+import Main from './components/main/Main';
 import data from './components/start/data.json'
 
 export default function App() {
-
   const [expenses, setExpenses] = useState(data);
   const [totalExpenses, setTotalExpenses] = useState(0);
+  console.log("app() expenses:", expenses);
 
   useEffect(() => {
     let moneySpent = 0;
@@ -17,19 +16,16 @@ export default function App() {
     }
 
     setTotalExpenses(moneySpent);
-  }, [expenses]);
+  },[expenses]) ;
 
-  data.sort((a, b) => {
+  expenses.sort((a, b) => {
     return new Date(b.date) - new Date(a.date);
   })
-
-  
 
   return (
     <>
       <Start totalExpenses={totalExpenses} />
-      <Main expenses={expenses} setExpenses={setExpenses} />
-      <Footer />
+      <Main expenses={expenses} setExpenses={setExpenses}/>
     </>
   );
 } 

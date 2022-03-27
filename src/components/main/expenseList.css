@@ -1,0 +1,88 @@
+#expenses {
+  grid-area: b;
+  display: flex;
+  flex-direction: column;
+  width: 490px;
+  /* width: 100%; */
+  list-style-type: none;
+  background-color: #acada8;
+  border-radius: 5px;
+  padding: 0px 20px;
+}
+
+#latest-expenses li {
+  background-color: #f0f1ea;
+  display: grid;
+  grid-template-columns: 67px auto 90px 50px 11px;
+  grid-template-areas: "a b c d e";
+  border: 1px #6a6d6679;
+  border-style: groove;
+  padding: 5px;
+  border-radius: 5px;
+  list-style-type: none;
+  gap: 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  justify-items: left;
+}
+
+.purchase-date {
+  grid-area: a;
+  font-size: 13px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.purchase-item {
+  grid-area: b;
+  font-size: 13px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.purchase-category {
+  grid-area: c;
+  font-size: 12px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.purchase-cost {
+  grid-area: d;
+  font-size: 13px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.remove-purchase {
+  grid-area: e;
+  cursor: pointer;
+  border: none;
+  font-size: 8px;
+  width: fit-content;
+  background-color: #f0f1ea;
+  justify-content: end;
+  opacity: 50%;
+}
+
+.remove-purchase:hover {
+  background-color: #f0f1ea;
+  opacity: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  #expenses, #latest-expenses {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 463px) {
+  #expenses h3, p {
+    width: max-content;
+  }
+}
