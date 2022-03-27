@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/budget-app/static/css/main.9e5780dd.css",
+    "main.js": "/budget-app/static/js/main.d141de0f.js",
+    "static/js/787.3c26c0e8.chunk.js": "/budget-app/static/js/787.3c26c0e8.chunk.js",
+    "static/media/laptop-gd58a3098d_1920.jpg": "/budget-app/static/media/laptop-gd58a3098d_1920.c51ac12825f1a7c9b587.jpg",
+    "static/media/NeverDontGiveUpDev_Logo_NDGU.Dev_Icon.png": "/budget-app/static/media/NeverDontGiveUpDev_Logo_NDGU.Dev_Icon.bd6d0599d558ff0b00d4.png",
+    "static/media/NeverDontGiveUpDev_Logo_white_NDGU.Dev.png": "/budget-app/static/media/NeverDontGiveUpDev_Logo_white_NDGU.Dev.3e98e48699601377c759.png",
+    "index.html": "/budget-app/index.html",
+    "main.9e5780dd.css.map": "/budget-app/static/css/main.9e5780dd.css.map",
+    "main.d141de0f.js.map": "/budget-app/static/js/main.d141de0f.js.map",
+    "787.3c26c0e8.chunk.js.map": "/budget-app/static/js/787.3c26c0e8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9e5780dd.css",
+    "static/js/main.d141de0f.js"
+  ]
+}
