@@ -2,12 +2,16 @@
   grid-area: b;
   display: flex;
   flex-direction: column;
-  width: 490px;
-  /* width: 100%; */
+  /* width: 490px; */
+  width: 100%;
   list-style-type: none;
-  background-color: #acada8;
+  background-color: #c2bbb4;
   border-radius: 5px;
   padding: 0px 20px;
+}
+
+#expenses h3 {
+  font-weight: bold;
 }
 
 #latest-expenses li {
@@ -71,8 +75,8 @@
 }
 
 @media screen and (max-width: 700px) {
-  #expenses, #latest-expenses {
-    width: 70%;
+  #expenses, #latest-expenses li {
+    width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;

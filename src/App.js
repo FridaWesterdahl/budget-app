@@ -7,7 +7,6 @@ import data from './components/start/data.json'
 export default function App() {
   const [expenses, setExpenses] = useState(data);
   const [totalExpenses, setTotalExpenses] = useState(0);
-  console.log("app() expenses:", expenses);
 
   useEffect(() => {
     let moneySpent = 0;
@@ -16,7 +15,7 @@ export default function App() {
     }
 
     setTotalExpenses(moneySpent);
-  },[expenses]) ;
+  }, [expenses]);
 
   expenses.sort((a, b) => {
     return new Date(b.date) - new Date(a.date);
@@ -25,7 +24,7 @@ export default function App() {
   return (
     <>
       <Start totalExpenses={totalExpenses} />
-      <Main expenses={expenses} setExpenses={setExpenses}/>
+      <Main expenses={expenses} setExpenses={setExpenses} />
     </>
   );
 } 

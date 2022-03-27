@@ -13,6 +13,11 @@
   padding-bottom: 5px;
 }
 
+#add {
+  margin-left: 40px;
+  font-weight: bold;
+}
+
 #new-expense #date, #new-expense #input, #cost {
   background-color: #f0f1ea;
   border-radius: 5px;

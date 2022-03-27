@@ -12,10 +12,10 @@
 body {
     max-width: 800px;
     margin: 0 auto;
-    background: linear-gradient(to bottom, #b9b9b5 13%, #e0e0dc 100%);
-    /* background: #b9b9b5; */
-    background: lightgreen;
+    /* background: linear-gradient(to bottom, #b9b9b5 13%, #e0e0dc 100%); */
+    background: #f5f3ed;
     opacity: 85%;
+     box-shadow: 1px 5px 10px 0 rgb(0 0 0 / 20%), 0 25px 50px 0 rgb(0 0 0 / 10%);
 }
 
 h3 {

@@ -8,7 +8,7 @@ function Money(props) {
 }
 
 
-export default function Start({totalExpenses}) {
+export default function Start({ totalExpenses }) {
     const [budget, setBudget] = useState(500000);
 
     let moneyLeft = (budget - totalExpenses);
@@ -20,9 +20,6 @@ export default function Start({totalExpenses}) {
 
     return (
         <>
-            {/* <section id="graph">
-                <img src="https://mb.cision.com/Public/977/3482646/aa5533be0d43e6fc_800x800ar.png"></img>
-            </section> */}
             <h1>Budget calculator</h1>
             <div id="summary">
                 <form>
@@ -35,7 +32,6 @@ export default function Start({totalExpenses}) {
                             onChange={handleBudgetChange}
                         >
                         </input></p>
-                    {/* <button type="submit" id="submit" onSubmit={handleBudgetSubmit}>submit</button> */}
                 </form>
                 <Money id="money-spent" name="Total money spent" money={totalExpenses + ':-'} />
                 <Money id="money-left" name="Total money left" money={moneyLeft + ':-'} />

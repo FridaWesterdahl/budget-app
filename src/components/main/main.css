@@ -37,6 +37,7 @@
   padding: 5px;
   background-color: #8c8f86c4;
   margin-bottom: 15px;
+  margin-left: 20px;
 }
 
 .details-button-clicked {
@@ -44,4 +45,5 @@
   padding: 5px;
   background-color: #1b1b1b;
   margin-bottom: 15px;
+  margin-left: 20px;
 }

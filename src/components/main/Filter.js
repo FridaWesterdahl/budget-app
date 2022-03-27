@@ -6,8 +6,8 @@ export default function Filter({ setSearchItem }) {
         <div id="filter">
             <h3 id="filter-title">Filter</h3>
             <div id="filter-wrapper">
-                <input placeholder="Search..." onChange={(e) => setSearchItem(e.target.value)} />
-        </div>
+                <input id="search" placeholder="Search..." onChange={(e) => setSearchItem(e.target.value)} />
+            </div>
         </div>
     );
 }
