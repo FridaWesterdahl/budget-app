@@ -21,9 +21,9 @@ export default function Main({ expenses, setExpenses }) {
                 SHOW DETAILS</button>
 
             <div id="wrapper" className={click ? '' : 'hidden'}>
-            <Filter setFilter={setFilter} />
+                <Filter expenses={expenses} setFilter={setFilter} />
                 <ExpenseForm expenses={expenses} setExpenses={setExpenses} />
-                <ExpenseList expenses={expenses} setExpenses={setExpenses} filter={filter}/>
+                <ExpenseList expenses={expenses} setExpenses={setExpenses} filter={filter} setFilter={setFilter} />
             </div>
             <div className={click ? 'hidden' : ''}>
                 <BigLogo />

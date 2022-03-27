@@ -9,8 +9,11 @@ export default function ExpenseList({ expenses, setExpenses, filter }) {
         setExpenses(total);
     }
 
-    const filterExpense = expenses.filter(event => event.category === filter);
-    const result = filter === 'All' ? expenses : filterExpense;
+    // const filterExpense = expenses.filter(event => event.category === filter);
+    
+    const result = filter === 'All' ? expenses : filter;
+
+    
 
     return (
         <div id="expenses">

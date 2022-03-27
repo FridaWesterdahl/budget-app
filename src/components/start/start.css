@@ -1,16 +1,17 @@
 html {
-  background-image: url('./laptop-gd58a3098d_1920.jpg');
-  background-attachment: fixed;
-  background-size: cover;
+    background-image: url('./laptop-gd58a3098d_1920.jpg');
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 h1 {
-  padding-top: 20px;
+    padding-top: 20px;
     font-size: 55px;
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
     text-shadow: 1px 1px #4e4b4b;
     text-align: center;
 }
+
 
 /* #graph {
     margin-top: 50px;
@@ -24,13 +25,13 @@ img {
 } */
 
 #summary {
-  border-radius: 8px;
-  width: 85%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
+    border-radius: 8px;
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
     background-color: #f0f1ea;
     padding: 5px;
     margin-top: 0;
@@ -38,27 +39,28 @@ img {
     border-style: inset;
     border-color: #807b7b31;
     margin-bottom: 10px;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2), 0 20px 50px 0 rgba(0,0,0,0.1);
-  }
-  #budget {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 20px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+#budget {
     width: 70px;
     background-color: #dadccd;
-    color:black;
+    color: black;
     padding: 3px 0px;
     /* padding-top: 3px;
     padding-bottom: 3px; */
     margin-left: 2px;
-    border:none;
+    border: none;
     border-radius: 5px;
     text-align: center;
-  }
+}
 
-  form {
+form {
     display: flex;
     margin: 0;
-  }
+}
 
-  #submit {
+#submit {
     width: max-content;
     height: fit-content;
     font-size: 12px;
@@ -73,23 +75,26 @@ img {
     background-color: #8c8f86dc;
     color: #f5f5f5;
     box-shadow: 2px 3px 4px 0 rgb(0 0 0 / 20%), 0 25px 50px 0 rgb(0 0 0 / 10%);
-  }
+}
 
-  @media screen and (max-width: 700px) {
-    #summary, #numbers {
-      width: 70%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
+@media screen and (max-width: 700px) {
+
+    #summary,
+    #numbers {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
     }
 
     #summary p {
-     margin: 2px;
+        margin: 2px;
     }
-  
-  }
+}
+
+
 /* 
   @media screen and (max-width: 400px) {
      #numbers {

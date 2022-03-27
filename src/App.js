@@ -16,7 +16,7 @@ export default function App() {
     }
 
     setTotalExpenses(moneySpent);
-  }, [expenses]);
+  });
 
   expenses.sort((a, b) => {
     return new Date(b.date) - new Date(a.date);
