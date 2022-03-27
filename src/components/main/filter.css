@@ -13,7 +13,7 @@
 
 #search {
     grid-area: b;
-    max-width: max-content;
+    max-width: 70%;
     font-size: 12px;
     background-color: #f0f1ea;
     color: black;
@@ -32,15 +32,16 @@
 }
 
 #filter-wrapper {
-    margin-left: 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
 @media screen and (max-width: 463px) {
-    #filter, #filter-title, #search {
-        width: max-content;
+    #filter {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5px;
     }
 
     #show-details-button {
