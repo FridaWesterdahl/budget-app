@@ -7,7 +7,6 @@ function Money(props) {
     );
 }
 
-
 export default function Start({ totalExpenses }) {
     const [budget, setBudget] = useState(500000);
 

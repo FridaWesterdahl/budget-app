@@ -2,7 +2,6 @@
   grid-area: b;
   display: flex;
   flex-direction: column;
-  /* width: 490px; */
   width: 100%;
   list-style-type: none;
   background-color: #c2bbb4;
